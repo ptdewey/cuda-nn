@@ -28,7 +28,7 @@ int main() {
     // network training
     Matrix Y;
 #ifdef PROFILE
-    for (int epoch = 0; epoch < 1; epoch++) {
+    for (int epoch = 0; epoch < 2; epoch++) {
     int print_epoch = 1;
 #else
     for (int epoch = 0; epoch < 1001; epoch++) {
