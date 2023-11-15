@@ -6,30 +6,31 @@ __device__ float sigmoid(float x) {
     // TODO: replace with faster exp function
     // i.e. __expf or expf
     // if using __expf (fast math), compare accuracies
-    return 1.0f / (1 + exp(-x));
+    // return 1.0f / (1 + __expf(-x));
+    return 1.0f / (1 + expf(-x));
 }
 
 __global__ void sigmoidActivationForward(float* Z, float* A,
                                          int Z_x_dim, int Z_y_dim) {
 
-    int index = blockIdx.x * blockDim.x + threadIdx.x;
+    int n = blockIdx.x * blockDim.x + threadIdx.x;
 
-    if (index < Z_x_dim * Z_y_dim) {
+    if (n < Z_x_dim * Z_y_dim) {
         // TODO: maybe use shared memory here?
         // might not be necessary, try other parts that actually require a reduction first
-        A[index] = sigmoid(Z[index]);
+        A[n] = sigmoid(Z[n]);
     }
 }
 
 __global__ void sigmoidActivationBackprop(float* Z, float* dA, float* dZ,
                                           int Z_x_dim, int Z_y_dim) {
 
-    int index = blockIdx.x * blockDim.x + threadIdx.x;
+    int n = blockIdx.x * blockDim.x + threadIdx.x;
 
-    if (index < Z_x_dim * Z_y_dim) {
+    if (n < Z_x_dim * Z_y_dim) {
         // TODO: shared memory storage for this part?
         // might not be necessary, try other parts that actually require a reduction first
-        dZ[index] = dA[index] * sigmoid(Z[index]) * (1 - sigmoid(Z[index]));
+        dZ[n] = dA[n] * sigmoid(Z[n]) * (1 - sigmoid(Z[n]));
     }
 }
 

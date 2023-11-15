@@ -6,17 +6,35 @@
 #include <math.h>
 
 __global__ void binaryCrossEntropyCost(float *predictions, float *target,
-                                       int size, float *cost) {
+                                       int N, float *cost) {
 
-    int index = blockIdx.x * blockDim.x + threadIdx.x;
+    int t = threadIdx.x;
+    int n = blockIdx.x * blockDim.x + threadIdx.x;
 
-    if (index < size) {
-        // TODO: fix long memory reaches, writes
-        float partial_cost =
-            target[index] * logf(predictions[index]) +
-            (1.0f - target[index]) * logf(1.0f - predictions[index]);
+    // NOTE: block size is 256x1 for this kernel
+    // PERF: bank size bottleneck is present for 1d block size
+    __shared__ float s_pc[256];
+
+    if (n < N) {
+        float partial_cost = target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n]);
+
         // TODO: replace atomic with reduction
-        atomicAdd(cost, -partial_cost / size);
+        // atomicAdd(cost, -partial_cost / N);
+
+        s_pc[t] = (-1 * partial_cost) / N;
+
+        if (t < 128) { s_pc[t] += s_pc[t + 128]; } __syncthreads();
+        if (t < 64)  { s_pc[t] += s_pc[t + 64];  } __syncthreads();
+        if (t < 32)  { s_pc[t] += s_pc[t + 32];  } __syncthreads();
+        if (t < 16)  { s_pc[t] += s_pc[t + 16];  } __syncthreads();
+        if (t < 8)   { s_pc[t] += s_pc[t + 8];   } __syncthreads();
+        if (t < 4)   { s_pc[t] += s_pc[t + 4];   } __syncthreads();
+        if (t < 2)   { s_pc[t] += s_pc[t + 2];   } __syncthreads();
+
+        if (t < 1) {
+            s_pc[t] += s_pc[t + 1];
+            *cost = s_pc[t];
+        }
     }
 }
 

@@ -1,0 +1,893 @@
+"Start","Duration","Grid X","Grid Y","Grid Z","Block X","Block Y","Block Z","Registers Per Thread","Static SMem","Dynamic SMem","Size","Throughput","SrcMemType","DstMemType","Device","Context","Stream","Unified Memory","Virtual Address","Name","Correlation_ID"
+ms,us,,,,,,,,B,B,B,MB/s,,,,,,B,,,
+534.022417,1.184000,,,,,,,,,,800,644.374537,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",650
+534.030705,1.056000,,,,,,,,,,400,361.240271,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",652
+534.064691,1.120000,,,,,,,,,,800,681.195940,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",658
+534.072275,1.312000,,,,,,,,,,400,290.754364,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",660
+534.097940,1.056000,,,,,,,,,,800,722.480542,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",666
+534.105908,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",668
+534.129365,1.056000,,,,,,,,,,800,722.480542,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",674
+534.136917,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",676
+534.161942,1.057000,,,,,,,,,,800,721.797023,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",682
+534.169783,1.056000,,,,,,,,,,400,361.240271,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",684
+534.206712,1.184000,,,,,,,,,,800,644.374537,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",690
+534.214552,1.025000,,,,,,,,,,400,372.165586,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",692
+534.236025,1.376000,,,,,,,,,,800,554.461811,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",698
+534.243961,1.248000,,,,,,,,,,400,305.664845,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",700
+534.267002,1.057000,,,,,,,,,,800,721.797023,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",706
+534.274683,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",708
+534.297820,1.120000,,,,,,,,,,800,681.195940,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",714
+534.306012,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",716
+534.327037,1.056000,,,,,,,,,,800,722.480542,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",722
+534.334493,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",724
+534.356350,1.056000,,,,,,,,,,800,722.480542,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",730
+534.364062,1.025000,,,,,,,,,,400,372.165586,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",732
+534.384991,1.088000,,,,,,,,,,800,701.231114,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",738
+534.392864,1.055000,,,,,,,,,,400,361.582679,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",740
+534.414625,1.087000,,,,,,,,,,800,701.876222,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",746
+534.422176,1.025000,,,,,,,,,,400,372.165586,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",748
+534.443042,1.055000,,,,,,,,,,800,723.165358,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",754
+534.450530,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",756
+534.472003,1.088000,,,,,,,,,,800,701.231114,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",762
+534.479651,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",764
+534.501060,1.056000,,,,,,,,,,800,722.480542,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",770
+534.508676,0.992000,,,,,,,,,,400,384.546095,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",772
+534.535237,1.056000,,,,,,,,,,800,722.480542,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",778
+534.542629,0.993000,,,,,,,,,,400,384.158838,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",780
+534.564390,1.056000,,,,,,,,,,800,722.480542,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",786
+534.571847,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",788
+534.593223,1.089000,,,,,,,,,,800,700.587193,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",794
+534.601032,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",796
+534.622121,1.088000,,,,,,,,,,800,701.231114,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",802
+534.629929,1.024000,,,,,,,,,,400,372.529030,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",804
+534.651242,1.280000,,,,,,,,,,800,596.046448,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",810
+534.658858,1.056000,,,,,,,,,,400,361.240271,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",812
+534.681995,1.024000,,,,,,,,,,120,111.758709,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",818
+534.705836,1.024000,,,,,,,,,,240,223.517418,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",820
+534.723501,1.056000,,,,,,,,,,4,3.612402,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",826
+534.731341,0.992000,,,,,,,,,,120,115.363828,"Pageable","Device","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy HtoD]",828
+534.783023,3.584000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",832
+534.800272,2.592000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",836
+534.813392,3.937000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",840
+534.826673,2.656000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",844
+534.839281,3.457000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",848
+534.850674,3.072000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",852
+534.862546,2.816000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",856
+534.870962,2.656000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",858
+534.876211,5.728000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",860
+534.887219,2.560000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",864
+534.897939,4.161000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",868
+534.904148,4.768000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",870
+534.909396,5.120000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",872
+555.426507,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+555.510341,488.979000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",876
+555.512250,485.107000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+555.958924,2.304000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+555.961228,6.304000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+556.006429,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+556.055600,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+556.056912,5.728000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+556.272739,3.264000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",880
+556.280035,2.400000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",882
+556.286243,3.713000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",884
+556.292036,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",886
+556.298244,3.104000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",888
+556.303876,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",890
+556.309252,2.465000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",892
+556.314437,2.592000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",894
+556.319365,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",896
+556.325253,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",898
+556.329477,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",900
+556.334118,5.696000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",902
+556.340422,5.376000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",904
+556.382524,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+556.486091,230.601000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",908
+556.595461,119.269000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+556.676456,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+556.678696,6.081000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+556.722269,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+556.749099,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+556.750411,5.729000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+556.932541,3.168000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",912
+556.938941,2.272000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",914
+556.944829,3.713000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",916
+556.950366,2.624000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",918
+556.956286,3.392000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",920
+556.961694,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",922
+556.966942,2.496000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",924
+556.972127,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",926
+556.977215,5.344000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",928
+556.983103,2.688000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",930
+556.986751,3.745000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",932
+556.991711,5.825000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",934
+556.998144,5.184000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",936
+557.037067,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+557.141382,173.030000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",940
+557.207037,105.413000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+557.281696,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+557.283904,5.953000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+557.319908,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+557.347555,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+557.348867,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+557.517877,3.423000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",944
+557.523925,2.303000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",946
+557.529845,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",948
+557.535221,2.496000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",950
+557.540981,3.360000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",952
+557.546261,2.753000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",954
+557.551446,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",956
+557.556630,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",958
+557.561718,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",960
+557.567542,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",962
+557.571575,3.743000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",964
+557.576663,5.568000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",966
+557.582775,5.280000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",968
+557.621086,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+557.678747,198.055000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",972
+557.769331,105.508000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+557.844502,2.305000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+557.846807,5.888000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+557.890504,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+557.916825,1.344000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+557.918169,5.665000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+558.089515,3.424000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",976
+558.095723,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",978
+558.101484,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",980
+558.106988,2.432000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",982
+558.113068,3.072000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",984
+558.118220,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",986
+558.123725,2.463000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",988
+558.128653,2.463000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",990
+558.133421,5.376000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",992
+558.139341,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",994
+558.143437,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",996
+558.148365,5.472000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",998
+558.154445,5.121000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1000
+558.192360,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+558.248561,212.809000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1004
+558.344586,114.821000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+558.422509,2.209000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+558.424718,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+558.466708,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+558.489552,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+558.490864,5.632000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+558.676098,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1008
+558.682466,2.272000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1010
+558.687971,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1012
+558.693347,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1014
+558.699459,2.976000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1016
+558.704515,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1018
+558.710212,2.463000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1020
+558.715204,2.464000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1022
+558.719812,5.376000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1024
+558.725764,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1026
+558.729252,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1028
+558.734053,5.248000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1030
+558.739845,5.376000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1032
+558.777401,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+558.834056,217.897000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1036
+558.934402,115.588000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+559.013221,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+559.015461,5.984000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+559.057205,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+559.080839,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+559.082151,5.665000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+559.259449,3.328000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1040
+559.266010,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1042
+559.271130,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1044
+559.276666,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1046
+559.282458,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1048
+559.287578,2.561000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1050
+559.293179,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1052
+559.298171,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1054
+559.302971,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1056
+559.308795,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1058
+559.312444,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1060
+559.317244,5.568000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1062
+559.323292,5.216000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1064
+559.359712,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+559.415552,215.336000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1068
+559.514649,114.148000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+559.593020,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+559.595228,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+559.636192,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+559.660766,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+559.662078,5.665000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+559.836720,3.393000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1072
+559.843313,2.303000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1074
+559.848433,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1076
+559.853809,2.368000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1078
+559.859569,2.976000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1080
+559.864529,2.561000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1082
+559.870322,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1084
+559.875314,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1086
+559.880146,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1088
+559.885906,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1090
+559.890130,3.713000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1092
+559.895091,5.312000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1094
+559.900915,5.344000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1096
+559.937423,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+559.994262,219.017000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1100
+560.093936,117.380000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+560.175219,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+560.177427,6.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+560.218500,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+560.241621,1.281000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+560.242902,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+560.417607,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1104
+560.423912,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1106
+560.429032,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1108
+560.434408,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1110
+560.440072,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1112
+560.445256,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1114
+560.451144,2.497000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1116
+560.455945,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1118
+560.460425,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1120
+560.466185,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1122
+560.470217,3.713000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1124
+560.474665,4.801000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1126
+560.480042,5.184000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1128
+560.515648,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+560.570637,215.529000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1132
+560.668934,115.237000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+560.748682,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+560.750922,6.304000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+560.791223,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+560.814764,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+560.816076,5.697000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+560.993470,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1136
+561.000318,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1138
+561.005311,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1140
+561.010303,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1142
+561.017151,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1144
+561.021887,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1146
+561.027615,2.465000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1148
+561.032864,2.464000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1150
+561.036704,5.312000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1152
+561.042528,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1154
+561.047008,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1156
+561.051681,5.824000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1158
+561.058081,5.344000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1160
+561.093807,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+561.149412,218.505000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1164
+561.251294,114.660000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+561.329953,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+561.332161,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+561.373262,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+561.397635,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+561.398947,5.920000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+561.573045,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1168
+561.579382,2.303000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1170
+561.584502,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1172
+561.589910,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1174
+561.595734,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1176
+561.601494,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1178
+561.606646,2.465000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1180
+561.611415,2.688000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1182
+561.616407,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1184
+561.622199,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1186
+561.626263,3.712000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1188
+561.630935,5.569000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1190
+561.637111,5.281000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1192
+561.672476,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+561.727899,228.009000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1196
+561.839221,114.756000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+561.917432,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+561.919672,5.824000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+561.961605,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+561.984794,1.280000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+561.986074,5.665000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+562.155724,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1200
+562.162381,2.624000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1202
+562.167501,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1204
+562.172685,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1206
+562.178605,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1208
+562.184173,2.592000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1210
+562.189293,2.497000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1212
+562.194318,2.592000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1214
+562.198926,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1216
+562.204782,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1218
+562.209198,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1220
+562.213614,6.049000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1222
+562.220143,5.344000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1224
+562.255738,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+562.311442,150.183000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1228
+562.365930,93.731000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+562.429196,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+562.431436,6.209000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+562.466849,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+562.490671,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+562.491983,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+562.618046,3.329000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1232
+562.624063,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1234
+562.629279,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1236
+562.634399,2.432000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1238
+562.640287,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1240
+562.646176,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1242
+562.651392,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1244
+562.656384,2.688000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1246
+562.660864,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1248
+562.666656,2.433000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1250
+562.670721,3.712000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1252
+562.675201,5.568000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1254
+562.681377,5.248000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1256
+562.716626,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+562.771685,225.385000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1260
+562.880254,114.852000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+562.959393,2.336000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+562.961729,6.176000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+563.002500,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+563.026148,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+563.027460,5.696000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+563.191862,3.423000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1264
+563.197845,2.305000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1266
+563.203126,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1268
+563.208822,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1270
+563.214550,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1272
+563.220534,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1274
+563.225655,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1276
+563.230327,2.688000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1278
+563.235127,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1280
+563.240887,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1282
+563.244983,3.713000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1284
+563.249463,5.217000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1286
+563.255192,5.408000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1288
+563.290561,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+563.345948,215.432000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1292
+563.443860,115.557000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+563.523512,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+563.525752,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+563.566607,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+563.589818,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+563.591130,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+563.768908,3.393000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1296
+563.774956,2.305000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1298
+563.779789,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1300
+563.785421,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1302
+563.791469,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1304
+563.797197,2.593000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1306
+563.802093,2.465000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1308
+563.807246,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1310
+563.811662,5.312000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1312
+563.817550,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1314
+563.821998,3.712000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1316
+563.826350,6.177000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1318
+563.833103,5.184000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1320
+563.868503,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+563.923954,217.705000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1324
+564.023211,116.453000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+564.103598,2.241000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+564.105839,6.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+564.146886,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+564.170705,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+564.172017,5.665000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+564.347555,3.392000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1328
+564.353540,2.271000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1330
+564.358756,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1332
+564.364100,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1334
+564.370020,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1336
+564.375652,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1338
+564.380740,2.497000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1340
+564.385765,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1342
+564.390373,5.408000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1344
+564.396389,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1346
+564.400421,3.712000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1348
+564.405125,5.216000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1350
+564.410886,5.312000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1352
+564.445904,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+564.501481,215.625000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1356
+564.599138,116.005000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+564.679301,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+564.681509,6.145000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+564.722482,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+564.745256,1.280000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+564.746536,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+564.926074,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1360
+564.932026,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1362
+564.937210,3.713000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1364
+564.942267,2.432000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1366
+564.948571,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1368
+564.953691,2.592000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1370
+564.959068,2.463000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1372
+564.964796,2.848000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1374
+564.968604,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1376
+564.974940,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1378
+564.978684,3.745000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1380
+564.983100,5.697000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1382
+564.989372,5.185000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1384
+565.024497,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+565.080800,215.689000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1388
+565.179865,114.661000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+565.258780,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+565.261020,6.177000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+565.301757,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+565.324415,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+565.325727,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+565.501905,3.488000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1392
+565.507921,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1394
+565.513233,3.745000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1396
+565.518418,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1398
+565.524786,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1400
+565.530034,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1402
+565.535090,2.496000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1404
+565.540082,2.753000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1406
+565.544787,5.376000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1408
+565.550739,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1410
+565.554931,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1412
+565.559507,5.504000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1414
+565.565556,5.280000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1416
+565.600719,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+565.655575,223.561000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1420
+565.752720,124.453000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+565.841107,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+565.843347,6.113000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+565.884876,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+565.909718,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+565.911030,5.601000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+566.038310,3.392000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1424
+566.043879,2.303000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1426
+566.048902,3.681000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1428
+566.054535,2.624000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1430
+566.060679,2.976000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1432
+566.066183,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1434
+566.071399,2.497000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1436
+566.076232,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1438
+566.080872,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1440
+566.086664,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1442
+566.091080,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1444
+566.095817,6.911000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1446
+566.103241,5.216000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1448
+566.138198,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+566.194508,216.841000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1452
+566.295077,114.309000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+566.373288,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+566.375496,6.177000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+566.416898,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+566.440203,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+566.441515,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+566.618141,3.424000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1456
+566.624285,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1458
+566.629341,3.713000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1460
+566.634494,2.432000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1462
+566.640766,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1464
+566.646270,2.592000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1466
+566.651007,2.591000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1468
+566.655935,3.200000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1470
+566.661119,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1472
+566.666975,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1474
+566.671199,3.712000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1476
+566.675839,5.633000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1478
+566.682047,5.345000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1480
+566.716915,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+566.772675,214.313000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1484
+566.871356,113.669000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+566.949471,2.241000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+566.951712,6.080000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+566.992373,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+567.015874,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+567.017186,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+567.252918,3.520000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1488
+567.258998,2.273000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1490
+567.264343,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1492
+567.269719,2.368000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1494
+567.275895,2.976000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1496
+567.280984,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1498
+567.286232,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1500
+567.307416,2.465000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1502
+567.313016,5.281000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1504
+567.318841,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1506
+567.323577,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1508
+567.328441,5.601000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1510
+567.334650,5.152000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1512
+567.375005,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+567.482175,162.215000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1516
+567.538262,104.165000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+567.611578,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+567.613786,6.144000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+567.649843,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+567.675612,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+567.676924,5.696000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+567.818893,3.328000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1520
+567.825133,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1522
+567.830189,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1524
+567.835949,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1526
+567.841870,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1528
+567.847438,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1530
+567.852174,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1532
+567.857166,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1534
+567.862446,5.217000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1536
+567.868175,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1538
+567.872335,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1540
+567.876879,5.728000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1542
+567.883151,5.248000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1544
+567.919019,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+567.973683,222.025000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1548
+568.078924,114.821000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+568.158191,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+568.160431,6.145000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+568.208156,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+568.231282,1.280000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+568.232562,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+568.398755,3.361000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1552
+568.404676,2.336000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1554
+568.410116,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1556
+568.416036,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1558
+568.421701,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1560
+568.427237,2.592000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1562
+568.432453,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1564
+568.437253,2.752000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1566
+568.442565,5.249000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1568
+568.448326,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1570
+568.452230,3.712000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1572
+568.456966,4.864000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1574
+568.462438,5.153000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1576
+568.497813,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+568.551754,213.288000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1580
+568.649090,113.989000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+568.726949,2.209000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+568.729158,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+568.770472,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+568.793960,1.280000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+568.795240,5.665000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+568.972763,3.423000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1584
+568.978714,2.305000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1586
+568.983899,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1588
+568.989531,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1590
+568.995547,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1592
+569.000572,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1594
+569.005724,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1596
+569.010748,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1598
+569.015996,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1600
+569.021821,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1602
+569.025404,3.745000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1604
+569.029853,6.048000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1606
+569.036413,5.280000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1608
+569.071500,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+569.126529,232.713000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1612
+569.232826,124.452000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+569.321885,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+569.324125,6.113000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+569.364778,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+569.387200,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+569.388512,5.632000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+569.551442,3.328000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1616
+569.557458,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1618
+569.562738,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1620
+569.568434,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1622
+569.574354,3.009000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1624
+569.579314,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1626
+569.584467,2.592000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1628
+569.589299,3.232000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1630
+569.594643,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1632
+569.600532,2.463000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1634
+569.604212,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1636
+569.608788,5.952000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1638
+569.615316,5.120000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1640
+569.650014,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+569.703448,235.817000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1644
+569.821969,115.333000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+569.901524,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+569.903732,6.176000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+569.944910,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+569.968791,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+569.970103,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+570.096103,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1648
+570.102087,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1650
+570.107335,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1652
+570.113063,2.401000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1654
+570.119752,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1656
+570.124456,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1658
+570.129704,2.497000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1660
+570.135784,2.497000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1662
+570.139817,5.376000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1664
+570.145705,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1666
+570.149065,3.712000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1668
+570.153481,6.081000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1670
+570.160170,5.376000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1672
+570.195397,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+570.251917,221.513000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1676
+570.357734,113.701000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+570.435849,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+570.438057,6.113000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+570.478941,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+570.502092,1.344000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+570.503436,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+570.668733,3.361000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1680
+570.674622,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1682
+570.679518,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1684
+570.685343,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1686
+570.691231,3.071000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1688
+570.696831,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1690
+570.702271,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1692
+570.707295,2.688000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1694
+570.711935,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1696
+570.717663,2.465000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1698
+570.721536,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1700
+570.726016,4.992000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1702
+570.731552,5.249000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1704
+570.766490,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+570.834980,216.745000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1708
+570.935517,114.245000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+571.013856,2.241000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+571.016097,6.176000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+571.060390,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+571.085635,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+571.086947,5.728000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+571.254837,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1712
+571.260757,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1714
+571.266613,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1716
+571.271733,2.401000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1718
+571.277750,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1720
+571.282902,2.592000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1722
+571.288342,2.624000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1724
+571.293686,2.721000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1726
+571.298455,5.312000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1728
+571.304375,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1730
+571.308407,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1732
+571.312887,5.696000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1734
+571.319191,5.313000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1736
+571.353760,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+571.420379,214.921000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1740
+571.518996,114.341000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+571.597719,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+571.599927,6.113000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+571.640850,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+571.664570,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+571.665882,5.632000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+571.839916,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1744
+571.845901,2.303000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1746
+571.851532,3.681000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1748
+571.856909,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1750
+571.862541,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1752
+571.867437,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1754
+571.872558,2.592000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1756
+571.878030,3.136000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1758
+571.882862,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1760
+571.888750,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1762
+571.892782,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1764
+571.897902,5.377000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1766
+571.903759,5.120000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1768
+571.938352,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+571.991282,214.665000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1772
+572.090187,113.797000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+572.168334,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+572.170542,6.144000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+572.211295,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+572.235249,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+572.236561,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+572.410915,3.328000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1776
+572.416771,2.272000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1778
+572.422179,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1780
+572.427620,2.368000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1782
+572.433348,3.040000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1784
+572.438916,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1786
+572.444036,2.592000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1788
+572.448964,3.200000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1790
+572.453829,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1792
+572.459685,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1794
+572.463717,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1796
+572.468837,6.112000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1798
+572.475493,5.313000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1800
+572.509979,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+572.565705,219.369000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1804
+572.666498,116.612000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+572.746533,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+572.748741,6.144000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+572.790254,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+572.813735,1.313000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+572.815048,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+572.984890,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1808
+572.990778,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1810
+572.996762,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1812
+573.001818,2.432000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1814
+573.007610,3.009000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1816
+573.012955,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1818
+573.018075,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1820
+573.023227,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1822
+573.028987,5.249000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1824
+573.034779,2.465000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1826
+573.037979,3.745000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1828
+573.043580,5.760000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1830
+573.049820,5.152000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1832
+573.084411,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+573.138016,267.626000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1836
+573.279034,124.549000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+573.357469,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+573.359677,5.952000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+573.410830,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+573.433888,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+573.435200,5.632000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+573.601810,3.520000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1840
+573.607858,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1842
+573.613362,3.713000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1844
+573.618803,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1846
+573.624339,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1848
+573.629651,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1850
+573.635251,2.592000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1852
+573.640371,2.785000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1854
+573.645300,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1856
+573.651124,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1858
+573.654932,3.712000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1860
+573.659892,5.345000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1862
+573.665845,5.344000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1864
+573.700867,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+573.754424,214.920000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1868
+573.852977,114.404000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+573.931956,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+573.934196,6.144000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+573.975092,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+573.998231,1.311000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+573.999542,5.665000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+574.126055,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1872
+574.131911,2.336000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1874
+574.137383,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1876
+574.142791,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1878
+574.148968,2.976000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1880
+574.153672,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1882
+574.159240,2.496000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1884
+574.164616,2.721000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1886
+574.168712,5.249000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1888
+574.174505,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1890
+574.178153,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1892
+574.183593,4.800000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1894
+574.189001,5.216000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1896
+574.223912,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+574.278509,150.470000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1900
+574.334564,92.451000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+574.396582,2.241000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+574.398823,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+574.434328,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+574.457769,1.280000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+574.459049,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+574.585401,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1904
+574.591641,2.272000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1906
+574.596730,3.711000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1908
+574.602298,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1910
+574.607930,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1912
+574.612922,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1914
+574.618554,2.592000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1916
+574.623259,2.463000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1918
+574.628250,5.313000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1920
+574.634075,2.464000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1922
+574.637787,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1924
+574.643227,5.696000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1926
+574.649531,5.377000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1928
+574.684244,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+574.738879,216.969000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1932
+574.838520,115.364000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+574.918171,2.560000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+574.920731,5.824000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+574.961230,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+574.985310,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+574.986622,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+575.160208,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1936
+575.166704,2.272000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1938
+575.171856,3.713000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1940
+575.177360,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1942
+575.183057,2.976000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1944
+575.188337,2.624000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1946
+575.194193,2.496000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1948
+575.198769,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1950
+575.203506,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1952
+575.209330,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1954
+575.213362,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1956
+575.217810,5.184000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1958
+575.223570,5.185000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1960
+575.258226,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+575.311926,217.448000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1964
+575.411566,115.845000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+575.491474,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+575.493682,6.144000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+575.537385,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+575.561396,1.345000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+575.562741,5.728000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+575.731494,3.361000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1968
+575.737767,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",1970
+575.742919,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",1972
+575.748263,2.432000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",1974
+575.753831,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",1976
+575.759048,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",1978
+575.764904,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1980
+575.769928,3.072000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1982
+575.775464,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1984
+575.781288,2.497000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",1986
+575.784840,3.745000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",1988
+575.790441,5.760000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",1990
+575.796681,5.376000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",1992
+575.831189,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+575.895117,215.145000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",1996
+575.992357,115.941000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+576.072264,2.241000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+576.074505,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+576.120665,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+576.143692,1.311000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+576.145003,5.697000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+576.311838,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2000
+576.318238,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",2002
+576.323262,3.712000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2004
+576.329374,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",2006
+576.334302,3.265000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",2008
+576.340830,2.561000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",2010
+576.345151,2.624000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",2012
+576.349983,3.168000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",2014
+576.354847,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",2016
+576.360736,2.463000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",2018
+576.365056,3.711000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",2020
+576.369536,6.080000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",2022
+576.376256,5.184000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",2024
+576.410556,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+576.465507,215.753000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",2028
+576.564316,114.981000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+576.643775,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+576.646015,5.825000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+576.686746,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+576.710402,1.280000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+576.711682,5.664000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+576.885012,3.392000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2032
+576.891188,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",2034
+576.896533,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2036
+576.901909,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",2038
+576.907573,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",2040
+576.913333,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",2042
+576.918486,2.496000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",2044
+576.923190,3.168000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",2046
+576.928118,5.280000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",2048
+576.933942,2.432000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",2050
+576.938262,3.744000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",2052
+576.942903,5.280000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",2054
+576.948663,5.408000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",2056
+576.983472,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+577.037242,191.400000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",2060
+577.112818,113.860000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+577.191093,2.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+577.193333,6.304000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+577.233888,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+577.257080,1.311000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+577.258391,5.665000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+577.395080,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2064
+577.401097,2.304000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",2066
+577.406153,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2068
+577.411625,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",2070
+577.417417,2.976000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",2072
+577.423306,2.560000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",2074
+577.428394,2.496000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",2076
+577.433642,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",2078
+577.438090,5.248000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",2080
+577.443947,2.431000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",2082
+577.448458,3.745000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",2084
+577.452683,5.664000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",2086
+577.458987,5.216000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",2088
+577.493869,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+577.548846,232.618000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",2092
+577.665288,114.116000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+577.743595,2.208000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+577.745803,5.856000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+577.786768,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+577.817518,1.280000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+577.818798,5.696000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+577.946974,3.360000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2096
+577.952895,2.303000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",2098
+577.958783,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2100
+577.963999,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",2102
+577.968959,3.008000,1,1,1,256,1,1,16,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"dBinaryCrossEntropyCost(float*, float*, float*, int)",2104
+577.974623,2.561000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationBackprop(float*, float*, float*, int, int)",2106
+577.979872,2.464000,13,4,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",2108
+577.985664,2.720000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",2110
+577.990080,5.312000,4,1,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",2112
+577.995904,2.433000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationBackprop(float*, float*, float*, int, int)",2114
+578.000417,3.711000,13,1,1,8,8,1,40,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerBackprop(float*, float*, float*, int, int, int, int)",2116
+578.005281,5.888000,12,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateBias(float*, float*, int, int, int, float)",2118
+578.011649,5.376000,1,4,1,8,8,1,31,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerUpdateWeights(float*, float*, float*, int, int, int, int, float)",2120
+578.046632,,,,,,,,,,,,,,,,,,"PC 0x16c6f8a9","0x7fe2fe000000","[Unified Memory CPU page faults]",
+578.101605,214.504000,1,1,1,256,1,1,14,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"binaryCrossEntropyCost(float*, float*, int, float*)",2124
+578.199709,114.436000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,"53","0x7fe2fe000000","[Unified Memory GPU page faults]",
+578.278528,2.368000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy HtoD]",
+578.280896,6.240000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy HtoD]",
+578.321551,,,,,,,,,,,,,,,,,,"PC 0x16c6f982","0x7fe2fe000000","[Unified Memory CPU page faults]",
+578.345091,1.312000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,4096.000000,"0x7fe2fe000000","[Unified Memory Memcpy DtoH]",
+578.346403,5.696000,,,,,,,,,,,,,,"NVIDIA GeForce GTX 1080 Ti (0)",,,61440.000000,"0x7fe2fe001000","[Unified Memory Memcpy DtoH]",
+578.535829,3.361000,13,4,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2128
+578.541846,2.272000,12,1,1,256,1,1,8,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"reluActivationForward(float*, float*, int, int)",2130
+578.546902,3.680000,13,1,1,8,8,1,32,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"linearLayerForward(float*, float*, float*, float*, int, int, int, int)",2132
+578.552278,2.400000,1,1,1,256,1,1,12,0,0,,,,,"NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"sigmoidActivationForward(float*, float*, int, int)",2134
+578.565143,1.408000,,,,,,,,,,400,270.930203,"Device","Pageable","NVIDIA GeForce GTX 1080 Ti (0)","1","7",,,"[CUDA memcpy DtoH]",2136

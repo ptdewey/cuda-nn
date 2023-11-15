@@ -1,6 +1,7 @@
 #include "coordinates_dataset.hh"
 
 CoordinatesDataset::CoordinatesDataset(size_t batch_size, size_t number_of_batches) :
+    srand(10);
 	batch_size(batch_size), number_of_batches(number_of_batches) {
 	for (int i = 0; i < number_of_batches; i++) {
 		batches.push_back(Matrix(Shape(batch_size, 2)));
