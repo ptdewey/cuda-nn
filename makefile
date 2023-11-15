@@ -18,7 +18,7 @@ run:
 	@$(MAKE) -C $(DIR) run
 
 profile: 
-	@echo "Running with profiler in directory $(DIR)"
+	@echo "Building for profiling in directory $(DIR)"
 	@$(MAKE) -C $(DIR) profile
 
 .PHONY: all build clean run profile

@@ -2,6 +2,7 @@
 
 CoordinatesDataset::CoordinatesDataset(size_t batch_size, size_t number_of_batches) :
 	batch_size(batch_size), number_of_batches(number_of_batches) {
+    srand(10);
 	for (int i = 0; i < number_of_batches; i++) {
 		batches.push_back(Matrix(Shape(batch_size, 2)));
 		targets.push_back(Matrix(Shape(batch_size, 1)));
