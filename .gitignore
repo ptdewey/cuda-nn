@@ -1,6 +1,11 @@
+*
+!*makefile*
+!*.*
+!*/
 *.i
 *.ii
 *.gpu
 *.ptx
 *.cubin
 *.fatbin
+*.csv

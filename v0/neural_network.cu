@@ -40,4 +40,3 @@ void NeuralNetwork::backprop(Matrix predictions, Matrix target) {
 std::vector<NNLayer*> NeuralNetwork::getLayers() const {
     return layers;
 }
-

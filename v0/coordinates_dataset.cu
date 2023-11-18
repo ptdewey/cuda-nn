@@ -17,7 +17,7 @@ CoordinatesDataset::CoordinatesDataset(size_t batch_size, size_t number_of_batch
 			if ( (batches[i][k] > 0 && batches[i][batches[i].shape.x + k] > 0) ||
 				 ((batches[i][k] < 0 && batches[i][batches[i].shape.x + k] < 0)) ) {
 				targets[i][k] = 1;
-            }
+			}
 			else {
 				targets[i][k] = 0;
 			}

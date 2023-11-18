@@ -5,33 +5,56 @@
 #include <iostream>
 #include <math.h>
 
+// convert 2D index into linear index
+__device__ int idx(int N, int nx, int ny) {
+    return ny * N + nx;
+}
+
+#define MASK (unsigned int)0xffffffff
+
 __global__ void binaryCrossEntropyCost(float *predictions, float *target,
                                        int N, float *cost) {
 
+    // switched to 2D thread blocks
     int t = threadIdx.x;
-    int n = blockIdx.x * blockIdx.x + threadIdx.x;
+    int w = threadIdx.y;
+    int nx = blockDim.x * blockIdx.x + threadIdx.x + 1;
+    int ny = blockDim.y * blockIdx.y + threadIdx.y + 1;
+    int n = idx(N, nx, ny);
 
-    // NOTE: block size is 256x1 for this kernel
-    // PERF: bank size bottleneck is potentially present for 1d block size
-    __shared__ float s_pc[256];
+    __shared__ float w_pc[32];
 
     if (n < N) {
-        float partial_cost = target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n]);
+        float pc = (-1 * target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n])) / N;
 
-        // shared memory tree reduction
-        s_pc[t] = (-1 * partial_cost) / N;
+        // shuffle reduction
+        #pragma unroll 16
+        for (int i = 16; i > 0; i /= 2) {
+             pc += __shfl_down_sync(MASK, pc, i);
+        }
 
-        if (t < 128) { s_pc[t] += s_pc[t + 128]; } __syncthreads();
-        if (t < 64)  { s_pc[t] += s_pc[t + 64];  } __syncthreads();
-        if (t < 32)  { s_pc[t] += s_pc[t + 32];  } __syncthreads();
-        if (t < 16)  { s_pc[t] += s_pc[t + 16];  } __syncthreads();
-        if (t < 8)   { s_pc[t] += s_pc[t + 8];   } __syncthreads();
-        if (t < 4)   { s_pc[t] += s_pc[t + 4];   } __syncthreads();
-        if (t < 2)   { s_pc[t] += s_pc[t + 2];   } __syncthreads();
+        __syncthreads();
 
+        // apppend results from first thread in each warp
         if (t == 0) {
-            s_pc[t] += s_pc[t + 1];
-            *cost = s_pc[t];
+            w_pc[w] = pc;
+        } 
+
+        __syncthreads();
+
+        // reduce full results in warp 0
+        if (w == 0) {
+            pc = w_pc[t];
+
+            #pragma unroll 16
+            for (int i = 16; i > 0; i /= 2) {
+                pc += __shfl_down_sync(MASK, pc, i);
+            }
+
+            // thread 0 in warp 0 adds to cost accumulator
+            if (t == 0) {
+                atomicAdd(cost, pc);
+            }
         }
     }
 }
@@ -57,9 +80,12 @@ float BCECost::cost(Matrix predictions, Matrix target) {
     cudaMallocManaged(&cost, sizeof(float));
     *cost = 0.0f;
 
-    dim3 block_size(256);
-    dim3 num_of_blocks((predictions.shape.x + block_size.x - 1) / block_size.x);
-    binaryCrossEntropyCost<<<num_of_blocks, block_size>>>(
+    // dim3 block_size(256);
+    dim3 T(16, 16);
+    int Bx = (predictions.shape.x + T.x - 1) / T.x;
+    int By = (predictions.shape.y + T.y - 1) / T.y;
+    dim3 B(Bx, By);
+    binaryCrossEntropyCost<<< B, T >>>(
         predictions.data_device.get(), target.data_device.get(),
         predictions.shape.x, cost);
     cudaDeviceSynchronize();

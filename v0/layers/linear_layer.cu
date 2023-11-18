@@ -19,7 +19,6 @@ __global__ void linearLayerForward( float* W, float* A, float* Z, float* b,
     float Z_value = 0;
 
     if (row < Z_y_dim && col < Z_x_dim) {
-        // TODO: fix long memory reaches (shared mem)
         for (int i = 0; i < W_x_dim; i++) {
             Z_value += W[row * W_x_dim + i] * A[i * A_x_dim + col];
         }
@@ -41,7 +40,6 @@ __global__ void linearLayerBackprop(float* W, float* dZ, float *dA,
     float dA_value = 0.0f;
 
     if (row < dA_y_dim && col < dA_x_dim) {
-        // TODO: fix long memory reaches (shared mem)
         for (int i = 0; i < W_y_dim; i++) {
             dA_value += W[i * W_x_dim + row] * dZ[i * dZ_x_dim + col];
         }
@@ -64,7 +62,6 @@ __global__ void linearLayerUpdateWeights(  float* dZ, float* A, float* W,
     float dW_value = 0.0f;
 
     if (row < W_y_dim && col < W_x_dim) {
-        // TODO: fix long memory reaches (shared mem)
         for (int i = 0; i < dZ_x_dim; i++) {
             dW_value += dZ[row * dZ_x_dim + i] * A[col * A_x_dim + i];
         }
@@ -79,10 +76,8 @@ __global__ void linearLayerUpdateBias(  float* dZ, float* b,
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < dZ_x_dim * dZ_y_dim) {
-        // TODO: fix long memory reaches (shared mem)
         int dZ_x = index % dZ_x_dim;
         int dZ_y = index / dZ_x_dim;
-        // TODO: replace atomic with reduction
         atomicAdd(&b[dZ_y], - learning_rate * (dZ[dZ_y * dZ_x_dim + dZ_x] / dZ_x_dim));
     }
 }
