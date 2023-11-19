@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <time.h>
 
 #include "neural_network.hh"
@@ -8,7 +9,8 @@
 #include "nn_utils/nn_exception.hh"
 #include "nn_utils/bce_cost.hh"
 
-#include "coordinates_dataset.hh"
+// #include "coordinates_dataset.hh"
+#include "mnist_dataset.hh"
 
 float computeAccuracy(const Matrix& predictions, const Matrix& targets);
 
@@ -16,17 +18,33 @@ int main() {
 
     srand( time(NULL) );
 
-    CoordinatesDataset dataset(100, 21);
+    size_t batch_size = 1000;
+    size_t number_of_batches = 30; // Adjust as needed
+
     BCECost bce_cost;
 
     NeuralNetwork nn;
-    nn.addLayer(new LinearLayer("linear_1", Shape(2, 30)));
+
+    // CoordinatesDataset dataset(100, 21);
+    // CoordinatesDataset
+    // nn.addLayer(new LinearLayer("linear_1", Shape(2, 30)));
+    // nn.addLayer(new ReLUActivation("relu_1"));
+    // nn.addLayer(new LinearLayer("linear_2", Shape(30, 1)));
+    // nn.addLayer(new SigmoidActivation("sigmoid_output"));
+
+    std::string image_file = "../mnist/filtered-train-images.idx3-ubyte";
+    std::string labels_file = "../mnist/filtered-train-labels.idx1-ubyte";
+    MNISTDataset dataset(batch_size, number_of_batches, image_file, labels_file);
+
+    // mnist
+    nn.addLayer(new LinearLayer("linear_1", Shape(784, 784)));
     nn.addLayer(new ReLUActivation("relu_1"));
-    nn.addLayer(new LinearLayer("linear_2", Shape(30, 1)));
+    nn.addLayer(new LinearLayer("linear_2", Shape(784, 1)));
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
 
     // network training
     Matrix Y;
+
 #ifdef PROFILE
     for (int epoch = 0; epoch < 2; epoch++) {
     int print_epoch = 1;
@@ -66,6 +84,7 @@ float computeAccuracy(const Matrix& predictions, const Matrix& targets) {
 
     for (int i = 0; i < m; i++) {
         float prediction = predictions[i] > 0.5 ? 1 : 0;
+        std::cout << "label: " << targets[i] << ", pred: " << prediction << "\n";
         if (prediction == targets[i]) {
             correct_predictions++;
         }
