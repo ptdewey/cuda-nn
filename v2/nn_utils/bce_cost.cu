@@ -14,18 +14,17 @@ __device__ int idx(int N, int nx, int ny) {
 
 __global__ void binaryCrossEntropyCost(float *predictions, float *target,
                                        int N, float *cost) {
-
     // switched to 2D thread blocks
     int t = threadIdx.x;
     int w = threadIdx.y;
-    int nx = blockDim.x * blockIdx.x + threadIdx.x + 1;
-    int ny = blockDim.y * blockIdx.y + threadIdx.y + 1;
+    int nx = blockDim.x * blockIdx.x + threadIdx.x;
+    int ny = blockDim.y * blockIdx.y + threadIdx.y;
     int n = idx(N, nx, ny);
 
     __shared__ float w_pc[32];
 
     if (n < N) {
-        float pc = (-1 * target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n])) / N;
+        float pc = -1 * (target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n])) / N;
 
         // shuffle reduction
         #pragma unroll 16
@@ -46,7 +45,9 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
         if (w == 0) {
             pc = w_pc[t];
 
-            #pragma unroll 16
+            // NOTE: block size is 32x8 here since the original was 256x1
+            // this means the last reduction should only happen on 4 threads in warp 0
+            // #pragma unroll 4
             for (int i = 16; i > 0; i /= 2) {
                 pc += __shfl_down_sync(MASK, pc, i);
             }
@@ -65,7 +66,7 @@ __global__ void dBinaryCrossEntropyCost(float *predictions, float *target,
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < size) {
-        // TODO: fix long memory reaches?, writes
+        // TODO: fix long memory reaches?, writes (strip mining?)
         dY[index] = -1.0 * (target[index] / predictions[index] -
             (1 - target[index]) / (1 - predictions[index]));
     }
@@ -75,13 +76,11 @@ float BCECost::cost(Matrix predictions, Matrix target) {
     assert(predictions.shape.x == target.shape.x);
 
     float *cost;
-    // TODO: change to cudaMalloc maybe? (its just a single value so probably
-    // fine) - value updated once per thread block
     cudaMallocManaged(&cost, sizeof(float));
     *cost = 0.0f;
 
     // dim3 block_size(256);
-    dim3 T(16, 16);
+    dim3 T(32, 32);
     int Bx = (predictions.shape.x + T.x - 1) / T.x;
     int By = (predictions.shape.y + T.y - 1) / T.y;
     dim3 B(Bx, By);
