@@ -8,7 +8,6 @@ MNISTDataset::MNISTDataset(size_t batch_size, size_t number_of_batches, const st
     std::ifstream imagesFile(imagesFilePath, std::ios::binary);
     if (!imagesFile.is_open()) {
         std::cerr << "Error opening MNIST image file." << std::endl;
-        // Handle the error (throw an exception, return an error code, etc.)
         return;
     }
 
@@ -16,7 +15,6 @@ MNISTDataset::MNISTDataset(size_t batch_size, size_t number_of_batches, const st
     std::ifstream labelsFile(labelsFilePath, std::ios::binary);
     if (!labelsFile.is_open()) {
         std::cerr << "Error opening MNIST label file." << std::endl;
-        // Handle the error (throw an exception, return an error code, etc.)
         imagesFile.close();
         return;
     }
@@ -27,6 +25,8 @@ MNISTDataset::MNISTDataset(size_t batch_size, size_t number_of_batches, const st
     imagesFile.read(reinterpret_cast<char*>(&num_images), sizeof(num_images));
     imagesFile.read(reinterpret_cast<char*>(&num_rows), sizeof(num_rows));
     imagesFile.read(reinterpret_cast<char*>(&num_cols), sizeof(num_cols));
+    labelsFile.read(reinterpret_cast<char*>(&magic_number_images), sizeof(magic_number_images));
+    labelsFile.read(reinterpret_cast<char*>(&num_images), sizeof(num_images));
 
     // Assuming MNIST images are 28x28, you might need to adjust this based on your actual MNIST data
     const int image_size = 28 * 28;
@@ -46,19 +46,23 @@ MNISTDataset::MNISTDataset(size_t batch_size, size_t number_of_batches, const st
                 unsigned char pixel_value;
                 imagesFile.read(reinterpret_cast<char*>(&pixel_value), sizeof(pixel_value));
                 batches[i][k * image_size + pixel] = static_cast<float>(pixel_value) / 255.0;
+                // int pv = batches[i][k * image_size + pixel] > 0.5 ? 1 : 0;
+                // if (pixel % 28 == 0 && pixel != 0) {
+                //     std::cout << "\n";
+                // }
+                // std::cout << pv << " ";
             }
 
             // Read MNIST label
             unsigned char label;
             labelsFile.read(reinterpret_cast<char*>(&label), sizeof(label));
+            
+            int l = static_cast<int>(label);
+        
+            // std::cout << "\n" << l << "\n";
 
             // Assign label based on MNIST class
-            if (label == 0 || label == 1) {
-                targets[i][k] = (label == 0) ? 1 : 0;
-            } else {
-                // Skip this image and label if not 0 or 1
-                k--;
-            }
+            targets[i][k] = l;
         }
 
         batches[i].copyHostToDevice();

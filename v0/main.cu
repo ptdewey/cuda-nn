@@ -10,36 +10,68 @@
 #include "nn_utils/bce_cost.hh"
 
 // #include "coordinates_dataset.hh"
+// #include "csv_dataset.hh"
 #include "mnist_dataset.hh"
 
-float computeAccuracy(const Matrix& predictions, const Matrix& targets);
+// float computeAccuracy(const Matrix& predictions, const Matrix& targets);
+float computeAccuracy(const Matrix& predictions, const Matrix& targets) {
+    int m = predictions.shape.x;
+    int correct_predictions = 0;
 
-int main() {
+    for (int i = 0; i < m; i++) {
+        float prediction = predictions[i] > 0.5 ? 1 : 0;
+        if (prediction == targets[i]) {
+            correct_predictions++;
+        }
+    }
+
+    return static_cast<float>(correct_predictions) / m;
+}
+
+int main(int argc, char** argv) {
+    // adjust these
+    size_t batch_size = 32;
+    size_t num_batches = 256;
+    int epochs = 125;
+
+    size_t l1 = 1800;
+    size_t l2 = 28;
+
+    if (argc >= 4) {
+        epochs = atoi(argv[1]);
+        l1 = atoi(argv[2]);
+        l2 = atoi(argv[3]);
+    }
+
+    int print_epoch = 25;
+    if (argc >= 5) {
+        print_epoch = atoi(argv[4]);
+    }
+    if (argc >= 6) {
+        cudaSetDevice(atoi(argv[5]));
+    }
 
     srand( time(NULL) );
-
-    size_t batch_size = 1000;
-    size_t number_of_batches = 30; // Adjust as needed
-
     BCECost bce_cost;
-
     NeuralNetwork nn;
 
-    // CoordinatesDataset dataset(100, 21);
-    // CoordinatesDataset
+    // Coordinates Dataset
+    // CoordinatesDataset dataset(batch_size, num_batches);
     // nn.addLayer(new LinearLayer("linear_1", Shape(2, 30)));
     // nn.addLayer(new ReLUActivation("relu_1"));
     // nn.addLayer(new LinearLayer("linear_2", Shape(30, 1)));
     // nn.addLayer(new SigmoidActivation("sigmoid_output"));
 
+    // mnist: 
     std::string image_file = "../mnist/filtered-train-images.idx3-ubyte";
     std::string labels_file = "../mnist/filtered-train-labels.idx1-ubyte";
-    MNISTDataset dataset(batch_size, number_of_batches, image_file, labels_file);
-
-    // mnist
-    nn.addLayer(new LinearLayer("linear_1", Shape(784, 784)));
+    MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
+    nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
     nn.addLayer(new ReLUActivation("relu_1"));
-    nn.addLayer(new LinearLayer("linear_2", Shape(784, 1)));
+    // nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
+    // nn.addLayer(new ReLUActivation("relu_2"));
+    nn.addLayer(new LinearLayer("linear_3", Shape(l1, 1)));
+    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
 
     // network training
@@ -49,8 +81,8 @@ int main() {
     for (int epoch = 0; epoch < 2; epoch++) {
     int print_epoch = 1;
 #else
-    for (int epoch = 0; epoch < 1001; epoch++) {
-    int print_epoch = 100;
+    for (int epoch = 0; epoch < epochs + 1; epoch++) {
+    // int print_epoch = 25;
 #endif
         float cost = 0.0;
 
@@ -60,7 +92,7 @@ int main() {
             cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
         }
 
-        if (epoch % print_epoch == 0) {
+        if (print_epoch > -1 && epoch % print_epoch == 0) {
             std::cout 	<< "Epoch: " << epoch
                 << ", Cost: " << cost / dataset.getNumOfBatches()
                 << std::endl;
@@ -73,22 +105,8 @@ int main() {
 
     float accuracy = computeAccuracy(
         Y, dataset.getTargets().at(dataset.getNumOfBatches() - 1));
-    std::cout 	<< "Accuracy: " << accuracy << std::endl;
+    std::cout << "Accuracy: " << accuracy << std::endl;
 
     return 0;
 }
 
-float computeAccuracy(const Matrix& predictions, const Matrix& targets) {
-    int m = predictions.shape.x;
-    int correct_predictions = 0;
-
-    for (int i = 0; i < m; i++) {
-        float prediction = predictions[i] > 0.5 ? 1 : 0;
-        std::cout << "label: " << targets[i] << ", pred: " << prediction << "\n";
-        if (prediction == targets[i]) {
-            correct_predictions++;
-        }
-    }
-
-    return static_cast<float>(correct_predictions) / m;
-}
