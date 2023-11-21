@@ -23,6 +23,8 @@ __global__ void linearLayerForward( float* W, float* A, float* Z, float* b,
         for (int i = 0; i < W_x_dim; i++) {
             Z_value += W[row * W_x_dim + i] * A[i * A_x_dim + col];
         }
+        // TODO: change this to tensor core version (w/strip mining)?
+        // (matrix multiplication)
         Z[row * Z_x_dim + col] = Z_value + b[row];
     }
 }

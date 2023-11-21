@@ -117,6 +117,7 @@ void LinearLayer::initializeBiasWithZeros() {
 }
 
 Matrix& LinearLayer::forward(Matrix& A) {
+    // std::cout << "W.shape:" << W.shape.x << ", A.shape:" << A.shape.y << std::endl;
     assert(W.shape.x == A.shape.y);
 
     this->A = A;
