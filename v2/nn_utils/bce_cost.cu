@@ -27,7 +27,7 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
         float pc = -1 * (target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n])) / N;
 
         // shuffle reduction
-        #pragma unroll 16
+        #pragma unroll 5
         for (int i = 16; i > 0; i /= 2) {
              pc += __shfl_down_sync(MASK, pc, i);
         }
@@ -47,7 +47,7 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
 
             // NOTE: block size is 32x8 here since the original was 256x1
             // this means the last reduction should only happen on 4 threads in warp 0
-            // #pragma unroll 4
+            #pragma unroll 5
             for (int i = 16; i > 0; i /= 2) {
                 pc += __shfl_down_sync(MASK, pc, i);
             }

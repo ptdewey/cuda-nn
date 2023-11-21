@@ -41,8 +41,10 @@ int main(int argc, char** argv) {
     size_t l1 = 1700;
     size_t l2 = 28;
 
-    if (argc >= 4) {
+    if (argc >= 2) {
         epochs = atoi(argv[1]);
+    }
+    if (argc >= 4) {
         l1 = atoi(argv[2]);
         l2 = atoi(argv[3]);
     }
@@ -88,13 +90,7 @@ int main(int argc, char** argv) {
     // network training
     Matrix Y;
 
-#ifdef PROFILE
-    for (int epoch = 0; epoch < 2; epoch++) {
-    int print_epoch = 1;
-#else
     for (int epoch = 0; epoch < epochs + 1; epoch++) {
-    // int print_epoch = 25;
-#endif
         float cost = 0.0;
 
         for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
