@@ -3,11 +3,13 @@
 #include <vector>
 #include "layers/nn_layer.hh"
 #include "nn_utils/bce_cost.hh"
+#include "nn_utils/ce_cost.hh"
 
 class NeuralNetwork {
 private:
 	std::vector<NNLayer*> layers;
 	BCECost bce_cost;
+	CECost ce_cost;
 
 	Matrix Y;
 	Matrix dY;
