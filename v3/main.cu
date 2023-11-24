@@ -14,7 +14,7 @@
 #include "coordinates_dataset.hh"
 #include "mnist_dataset.hh"
 
-#include <stdio.h>
+// #include <stdio.h>
 // TODO: clean up commented code at some point
 
 
@@ -109,6 +109,8 @@ int main(int argc, char** argv) {
     // full dataset:
     // std::string labels_file = "../mnist/train-labels.idx1-ubyte";
     // std::string image_file = "../mnist/train-images.idx3-ubyte";
+    // std::string test_image_file = "../mnist/test-images.idx3-ubyte";
+    // std::string test_labels_file = "../mnist/test-labels.idx1-ubyte";
 
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
 
@@ -134,6 +136,7 @@ int main(int argc, char** argv) {
         for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
             Y = nn.forward(dataset.getBatches().at(batch));
             nn.backprop(Y, dataset.getTargets().at(batch));
+            // TODO: make interface for cost functions? (allows alternative ones)
             cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
             // cost += ce_cost.cost(Y, dataset.getTargets().at(batch));
         }
@@ -160,11 +163,22 @@ int main(int argc, char** argv) {
     #define TEST
 
     #ifdef TEST
-    MNISTDataset test_set(2100, 1, test_image_file, test_labels_file);
-    Y = nn.forward(test_set.getBatches().at(0));
+    int ts = 2100;
+    MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
+    // MNISTDataset test_set(2100, 1, test_image_file, test_labels_file);
+    Matrix T;
+    float test_acc = 0.0;
+    for (int i = 1; i <= ts / batch_size; i++) {
+        T = nn.forward(test_set.getBatches().at(test_set.getNumOfBatches() - i));
+        T.copyDeviceToHost();
+        test_acc += computeAccuracy(T, test_set.getTargets().at(test_set.getNumOfBatches() - i));
+    }
+    test_acc /= (ts / batch_size);
+    // T = nn.forward(test_set.getBatches().at(test_set.getNumOfBatches() - 1));
     // FIX: this breaks sometimes? (nan cost issue probably) 
-    Y.copyDeviceToHost();
-    float test_acc = computeAccuracy(Y, test_set.getTargets().at(0));
+    // FIX: wrong T dimensions
+    // T.copyDeviceToHost();
+    // float test_acc = computeAccuracy(T, test_set.getTargets().at(test_set.getNumOfBatches() - 1));
     std::cout << "Test Accuracy: " << test_acc << std::endl;
     #endif
 
