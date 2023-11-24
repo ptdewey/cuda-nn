@@ -11,7 +11,7 @@
 #include "nn_utils/bce_cost.hh"
 #include "nn_utils/ce_cost.hh"
 
-// #include "coordinates_dataset.hh"
+#include "coordinates_dataset.hh"
 #include "mnist_dataset.hh"
 
 
@@ -29,16 +29,18 @@ float computeAccuracy(const Matrix& predictions, const Matrix& targets) {
     if (n > 1) {
         for (int i = 0; i < m; i++) {
             float prediction;
+            float psum = 0;
             float best_pred = 0.0;
             std::cout << "i: " << i;
             for (int c = 0; c < n; c++) {
-                std::cout << " p[c]: " << predictions[i*n+c];
+                std::cout << " p[c]: " << predictions[i * n + c];
+                psum += predictions[i *n + c];
                 if (predictions[i * n + c] > best_pred) {
                     best_pred = predictions[i * n + c];
                     prediction = c;
                 }
             }
-            std::cout << "Prediction: " << prediction <<  " Label: " << targets[i] << std::endl;
+            std::cout << " Psum: " << psum << " Prediction: " << prediction <<  " Label: " << targets[i] << std::endl;
             if (prediction == targets[i]) {
                 correct_predictions++;
             }
@@ -61,27 +63,28 @@ int main(int argc, char** argv) {
     // adjust these
     int print_epoch = 25;
     size_t batch_size = 32;
-    // size_t batch_size = 8;
-    // size_t num_batches = 16;
     size_t num_batches = 256;
     int epochs = 125;
 
-    size_t l1 = 1700;
-    // size_t l1 = 28;
-    size_t l2 = 28;
+    // size_t l1 = 1700;
+    // size_t l2 = 28;
+    size_t l1 = 512;
+    size_t l2 = 128;
 
-    if (argc >= 2) {
-        epochs = atoi(argv[1]);
-    }
+    if (argc >= 2) { epochs = atoi(argv[1]); }
     if (argc >= 4) {
         l1 = atoi(argv[2]);
         l2 = atoi(argv[3]);
     }
-    if (argc >= 5) {
-        print_epoch = atoi(argv[4]);
-    }
     if (argc >= 6) {
-        cudaSetDevice(atoi(argv[5]));
+        batch_size = atoi(argv[4]);
+        num_batches = atoi(argv[5]);
+    }
+    if (argc >= 7) {
+        print_epoch = atoi(argv[6]);
+    }
+    if (argc >= 8) {
+        cudaSetDevice(atoi(argv[7]));
     }
 
     srand( time(NULL) );
@@ -90,19 +93,23 @@ int main(int argc, char** argv) {
     NeuralNetwork nn;
 
     // Coordinates Dataset
-    // CoordinatesDataset dataset(batch_size, num_batches);
-    // nn.addLayer(new LinearLayer("linear_1", Shape(2, 30)));
-    // nn.addLayer(new ReLUActivation("relu_1"));
-    // nn.addLayer(new LinearLayer("linear_2", Shape(30, 1)));
-    // nn.addLayer(new SigmoidActivation("sigmoid_output"));
+    #ifdef COORDINATES
+    CoordinatesDataset dataset(batch_size, num_batches);
+    nn.addLayer(new LinearLayer("linear_1", Shape(2, 30)));
+    nn.addLayer(new ReLUActivation("relu_1"));
+    nn.addLayer(new LinearLayer("linear_2", Shape(30, 1)));
+    nn.addLayer(new SigmoidActivation("sigmoid_output"));
+    #endif
 
     // mnist: 
     // 0/1 dataset
-    // std::string image_file = "../mnist/filtered-train-images.idx3-ubyte";
-    // std::string labels_file = "../mnist/filtered-train-labels.idx1-ubyte";
+    std::string image_file = "../mnist/filtered-train-images.idx3-ubyte";
+    std::string labels_file = "../mnist/filtered-train-labels.idx1-ubyte";
+    std::string test_image_file = "../mnist/filtered-test-images.idx3-ubyte";
+    std::string test_labels_file = "../mnist/filtered-test-labels.idx1-ubyte";
     // full dataset:
-    std::string labels_file = "../mnist/train-labels.idx1-ubyte";
-    std::string image_file = "../mnist/train-images.idx3-ubyte";
+    // std::string labels_file = "../mnist/train-labels.idx1-ubyte";
+    // std::string image_file = "../mnist/train-images.idx3-ubyte";
 
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
 
@@ -111,12 +118,13 @@ int main(int argc, char** argv) {
     nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
     nn.addLayer(new ReLUActivation("relu_2"));
     // nn.addLayer(new LinearLayer("linear_3", Shape(l1, 1)));
-    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
+    nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
 
+    // nn.addLayer(new LinearLayer("linear_3", Shape(l1, 10)));
     // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
-    nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
-    // nn.addLayer(new SigmoidActivation("sigmoid_output"));
-    nn.addLayer(new SoftmaxActivation("softmax_output"));
+    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
+    nn.addLayer(new SigmoidActivation("sigmoid_output"));
+    // nn.addLayer(new SoftmaxActivation("softmax_output"));
 
     // network training
     Matrix Y;
@@ -127,8 +135,8 @@ int main(int argc, char** argv) {
         for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
             Y = nn.forward(dataset.getBatches().at(batch));
             nn.backprop(Y, dataset.getTargets().at(batch));
-            // cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
-            cost += ce_cost.cost(Y, dataset.getTargets().at(batch));
+            cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
+            // cost += ce_cost.cost(Y, dataset.getTargets().at(batch));
         }
 
         if (print_epoch > -1 && epoch % print_epoch == 0) {
@@ -145,6 +153,21 @@ int main(int argc, char** argv) {
     float accuracy = computeAccuracy(
         Y, dataset.getTargets().at(dataset.getNumOfBatches() - 1));
     std::cout << "Accuracy: " << accuracy << std::endl;
+
+
+    /**
+     * TESTING
+     */
+    #define TEST
+
+    #ifdef TEST
+    MNISTDataset test_set(2100, 1, test_image_file, test_labels_file);
+    Y = nn.forward(test_set.getBatches().at(0));
+    Y.copyDeviceToHost();
+    float test_acc = computeAccuracy(Y, test_set.getTargets().at(0));
+    std::cout << "Test Accuracy: " << test_acc << std::endl;
+    #endif
+    
 
 
     return 0;
