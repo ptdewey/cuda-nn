@@ -35,12 +35,6 @@ __global__ void crossEntropyCost(float* predictions, float* target, int N, int C
         atomicAdd(cost, -sampleCost / C);
 
     }
-    // if (n < N) {
-    //     // NOTE: this kind of works, but cost eventually starts increasing for some reason
-    //     float w_pc =  -logf(predictions[n * C + (int)(target[n])] + 1e-10);
-    //     printf("n: %d, p: %f\n", n, w_pc);
-    //     atomicAdd(cost, w_pc);
-    // }
 }
 
 __global__ void dCrossEntropyCost(float* predictions, float* target, float* dY, int N, int C) {

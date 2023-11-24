@@ -29,8 +29,9 @@ Matrix NeuralNetwork::forward(Matrix X) {
 void NeuralNetwork::backprop(Matrix predictions, Matrix target) {
     dY.allocateMemoryIfNotAllocated(predictions.shape);
     // TODO: make cost function a parameter
-    // Matrix error = bce_cost.dCost(predictions, target, dY);
-    Matrix error = ce_cost.dCost(predictions, target, dY);
+
+    Matrix error = bce_cost.dCost(predictions, target, dY);
+    // Matrix error = ce_cost.dCost(predictions, target, dY);
 
     for (auto it = this->layers.rbegin(); it != this->layers.rend(); it++) {
         error = (*it)->backprop(error, learning_rate);

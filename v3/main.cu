@@ -14,7 +14,6 @@
 #include "coordinates_dataset.hh"
 #include "mnist_dataset.hh"
 
-
 #include <stdio.h>
 // TODO: clean up commented code at some point
 
@@ -163,12 +162,11 @@ int main(int argc, char** argv) {
     #ifdef TEST
     MNISTDataset test_set(2100, 1, test_image_file, test_labels_file);
     Y = nn.forward(test_set.getBatches().at(0));
+    // FIX: this breaks sometimes? (nan cost issue probably) 
     Y.copyDeviceToHost();
     float test_acc = computeAccuracy(Y, test_set.getTargets().at(0));
     std::cout << "Test Accuracy: " << test_acc << std::endl;
     #endif
-    
-
 
     return 0;
 }

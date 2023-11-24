@@ -24,7 +24,9 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     __shared__ float w_pc[32];
 
     if (n < N) {
+        // float pc = -1 * (target[n] * __logf(predictions[n]) + (1.0f - target[n]) * __logf(1.0f - predictions[n])) / N;
         float pc = -1 * (target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n])) / N;
+        // FIX: nan cost due to log(0)?
 
         // shuffle reduction
         #pragma unroll 5
@@ -32,7 +34,7 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
              pc += __shfl_down_sync(MASK, pc, i);
         }
 
-        __syncthreads();
+        // __syncthreads();
 
         // apppend results from first thread in each warp
         if (t == 0) {
@@ -45,8 +47,7 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
         if (w == 0) {
             pc = w_pc[t];
 
-            // NOTE: block size is 32x8 here since the original was 256x1
-            // this means the last reduction should only happen on 4 threads in warp 0
+            // NOTE: block size is 32x32 here but the original was 256x1 (32x4 was slow?)
             #pragma unroll 5
             for (int i = 16; i > 0; i /= 2) {
                 pc += __shfl_down_sync(MASK, pc, i);
@@ -66,7 +67,7 @@ __global__ void dBinaryCrossEntropyCost(float *predictions, float *target,
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < size) {
-        // TODO: fix long memory reaches?, writes (strip mining?)
+        // FIX: nan cost due to division by zero?
         dY[index] = -1.0 * (target[index] / predictions[index] -
             (1 - target[index]) / (1 - predictions[index]));
     }
@@ -101,6 +102,7 @@ Matrix BCECost::dCost(Matrix predictions, Matrix target, Matrix dY) {
     assert(predictions.shape.x == target.shape.x);
 
     dim3 block_size(256);
+    // dim3 block_size(32, 32);
     dim3 num_of_blocks((predictions.shape.x + block_size.x - 1) / block_size.x);
     dBinaryCrossEntropyCost<<<num_of_blocks, block_size>>>(
         predictions.data_device.get(), target.data_device.get(),

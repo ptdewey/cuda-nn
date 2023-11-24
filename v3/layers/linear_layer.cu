@@ -6,6 +6,14 @@
 #include "linear_layer.hh"
 #include "../nn_utils/nn_exception.hh"
 
+
+// matrix bounds are related to batch size input size, and linear layer size
+__device__ void mxm(int M, int K, int N, float* W, float* A, float* Z) {
+    int bn = blockIdx.x;
+    int bm = blockIdx.y;
+    int t = threadIdx.x;
+}
+
 __global__ void linearLayerForward( float* W, float* A, float* Z, float* b,
                                    int W_x_dim, int W_y_dim,
                                    int A_x_dim, int A_y_dim) {
@@ -19,11 +27,12 @@ __global__ void linearLayerForward( float* W, float* A, float* Z, float* b,
     float Z_value = 0;
 
     if (row < Z_y_dim && col < Z_x_dim) {
+        // 8x8 thread blocks
         for (int i = 0; i < W_x_dim; i++) {
-            Z_value += W[row * W_x_dim + i] * A[i * A_x_dim + col];
-        }
         // TODO: change this to tensor core version (w/strip mining)?
         // (matrix multiplication)
+            Z_value += W[row * W_x_dim + i] * A[i * A_x_dim + col];
+        }
         Z[row * Z_x_dim + col] = Z_value + b[row];
     }
 }
@@ -42,8 +51,8 @@ __global__ void linearLayerBackprop(float* W, float* dZ, float *dA,
     float dA_value = 0.0f;
 
     if (row < dA_y_dim && col < dA_x_dim) {
-        // TODO: fix long memory reaches (shared mem)
         for (int i = 0; i < W_y_dim; i++) {
+            // TODO: matrix fma
             dA_value += W[i * W_x_dim + row] * dZ[i * dZ_x_dim + col];
         }
         dA[row * dA_x_dim + col] = dA_value;
@@ -65,8 +74,8 @@ __global__ void linearLayerUpdateWeights(  float* dZ, float* A, float* W,
     float dW_value = 0.0f;
 
     if (row < W_y_dim && col < W_x_dim) {
-        // TODO: fix long memory reaches (shared mem)
         for (int i = 0; i < dZ_x_dim; i++) {
+            // TODO: matrix fma
             dW_value += dZ[row * dZ_x_dim + i] * A[col * A_x_dim + i];
         }
         W[row * W_x_dim + col] = W[row * W_x_dim + col] - learning_rate * (dW_value / A_x_dim);
@@ -80,7 +89,6 @@ __global__ void linearLayerUpdateBias(  float* dZ, float* b,
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < dZ_x_dim * dZ_y_dim) {
-        // TODO: fix long memory reaches (shared mem)
         int dZ_x = index % dZ_x_dim;
         int dZ_y = index / dZ_x_dim;
         // TODO: replace atomic with reduction
@@ -139,6 +147,9 @@ void LinearLayer::computeAndStoreLayerOutput(Matrix& A) {
     dim3 block_size(8, 8);
     dim3 num_of_blocks(	(Z.shape.x + block_size.x - 1) / block_size.x,
                        (Z.shape.y + block_size.y - 1) / block_size.y);
+    // std::cout << "W_x_dim: " << W.shape.x << ", W_y_dim: " << W.shape.y << std::endl;
+    // std::cout << "A_x_dim: " << A.shape.x << ", A_y_dim: " << A.shape.y << std::endl;
+    // std::cout << "Z_x_dim: " << Z.shape.x << ", Z_y_dim: " << Z.shape.y << std::endl;
     linearLayerForward<<<num_of_blocks, block_size>>>( W.data_device.get(),
                                                       A.data_device.get(),
                                                       Z.data_device.get(),
