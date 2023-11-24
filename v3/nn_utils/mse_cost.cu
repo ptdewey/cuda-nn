@@ -1,0 +1,75 @@
+#include "mse_cost.hh"
+#include "nn_exception.hh"
+
+#include <assert.h>
+#include <iostream>
+#include <math.h>
+
+__global__ void meanSquareErrorCost(float* predictions, float* target, int N, int C, float* cost) {
+    int n = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if (n < N) {
+        float sum = 0.0f;
+        // TODO: make more efficient
+        for (int c = 0; c < C; c++) {
+            int idx = n * C + c;
+            float diff = predictions[idx] - target[idx];
+            sum += diff * diff;
+        }
+        atomicAdd(cost, sum / C);
+    }
+}
+
+__global__ void dMeanSquareErrorCost(float* predictions, float* target, float* dY, int N, int C) {
+    int n = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if (n < N) {
+        // TODO: make more efficient
+        for (int c = 0; c < C; c++) {
+            int index = n * C + c;
+            dY[index] = 2.0f * (predictions[index] - target[index]) / C;
+        }
+    }
+}
+
+
+float MSECost::cost(Matrix predictions, Matrix target) {
+    assert(predictions.shape.x == target.shape.x);
+
+    float *cost;
+    cudaMallocManaged(&cost, sizeof(float));
+    *cost = 0.0f;
+
+    dim3 T(256);
+    dim3 B((predictions.shape.x + T.x - 1) / T.x);
+    // dim3 T(32, 32);
+    // int Bx = (predictions.shape.x + T.x - 1) / T.x;
+    // int By = (predictions.shape.y + T.y - 1) / T.y;
+    // dim3 B(Bx, By);
+    meanSquareErrorCost<<< B, T >>>(
+        predictions.data_device.get(), target.data_device.get(),
+        predictions.shape.x, predictions.shape.y, cost);
+    cudaDeviceSynchronize();
+    NNException::throwIfDeviceErrorsOccurred(
+        "Cannot compute MSE cost.");
+
+    float cost_value = *cost;
+    cudaFree(cost);
+
+    return cost_value;
+}
+
+Matrix MSECost::dCost(Matrix predictions, Matrix target, Matrix dY) {
+    assert(predictions.shape.x == target.shape.x);
+
+    dim3 block_size(256);
+    // dim3 block_size(32, 32);
+    dim3 num_of_blocks((predictions.shape.x + block_size.x - 1) / block_size.x);
+    dMeanSquareErrorCost<<<num_of_blocks, block_size>>>(
+        predictions.data_device.get(), target.data_device.get(),
+        dY.data_device.get(), predictions.shape.x, predictions.shape.y);
+    NNException::throwIfDeviceErrorsOccurred(
+        "Cannot compute derivative for mean square error.");
+
+    return dY;
+}
