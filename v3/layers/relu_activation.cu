@@ -1,30 +1,21 @@
 #include "relu_activation.hh"
 #include "../nn_utils/nn_exception.hh"
 
-__global__ void reluActivationForward(float* Z, float* A,
-                                      int Z_x_dim, int Z_y_dim) {
+#include <stdio.h>
 
+__global__ void reluActivationForward(float* Z, float* A, int Z_x_dim, int Z_y_dim) {
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < Z_x_dim * Z_y_dim) {
-        // TODO: this one might actually be good already
         A[index] = fmaxf(Z[index], 0);
     }
 }
 
-__global__ void reluActivationBackprop(float* Z, float* dA, float* dZ,
-                                       int Z_x_dim, int Z_y_dim) {
+__global__ void reluActivationBackprop(float* Z, float* dA, float* dZ, int Z_x_dim, int Z_y_dim) {
+    int n = blockIdx.x * blockDim.x + threadIdx.x;
 
-    int index = blockIdx.x * blockDim.x + threadIdx.x;
-
-    if (index < Z_x_dim * Z_y_dim) {
-        // TODO: conditional to ternary (if that improves things)
-        if (Z[index] > 0) {
-            dZ[index] = dA[index];
-        }
-        else {
-            dZ[index] = 0;
-        }
+    if (n < Z_x_dim * Z_y_dim) {
+        dZ[n] = (Z[n] > 0) ? dA[n] : 0;
     }
 }
 
@@ -41,8 +32,7 @@ Matrix& ReLUActivation::forward(Matrix& Z) {
     dim3 block_size(256);
     dim3 num_of_blocks((Z.shape.y * Z.shape.x + block_size.x - 1) / block_size.x);
 
-    reluActivationForward<<<num_of_blocks, block_size>>>(Z.data_device.get(), A.data_device.get(),
-                                                         Z.shape.x, Z.shape.y);
+    reluActivationForward <<< num_of_blocks, block_size >>> (Z.data_device.get(), A.data_device.get(), Z.shape.x, Z.shape.y);
     NNException::throwIfDeviceErrorsOccurred("Cannot perform ReLU forward propagation.");
 
     return A;
@@ -53,9 +43,7 @@ Matrix& ReLUActivation::backprop(Matrix& dA, float learning_rate) {
 
     dim3 block_size(256);
     dim3 num_of_blocks((Z.shape.y * Z.shape.x + block_size.x - 1) / block_size.x);
-    reluActivationBackprop<<<num_of_blocks, block_size>>>(Z.data_device.get(), dA.data_device.get(),
-                                                          dZ.data_device.get(),
-                                                          Z.shape.x, Z.shape.y);
+    reluActivationBackprop <<< num_of_blocks, block_size >>> (Z.data_device.get(), dA.data_device.get(), dZ.data_device.get(), Z.shape.x, Z.shape.y);
     NNException::throwIfDeviceErrorsOccurred("Cannot perform ReLU back propagation");
 
     return dZ;

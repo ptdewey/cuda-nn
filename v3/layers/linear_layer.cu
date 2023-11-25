@@ -8,11 +8,11 @@
 
 
 // matrix bounds are related to batch size input size, and linear layer size
-__device__ void mxm(int M, int K, int N, float* W, float* A, float* Z) {
-    int bn = blockIdx.x;
-    int bm = blockIdx.y;
-    int t = threadIdx.x;
-}
+// __device__ void mxm(int M, int K, int N, float* W, float* A, float* Z) {
+//     int bn = blockIdx.x;
+//     int bm = blockIdx.y;
+//     int t = threadIdx.x;
+// }
 
 __global__ void linearLayerForward( float* W, float* A, float* Z, float* b,
                                    int W_x_dim, int W_y_dim,
@@ -145,7 +145,7 @@ Matrix& LinearLayer::forward(Matrix& A) {
 
 void LinearLayer::computeAndStoreLayerOutput(Matrix& A) {
     dim3 block_size(8, 8);
-    dim3 num_of_blocks(	(Z.shape.x + block_size.x - 1) / block_size.x,
+    dim3 num_of_blocks((Z.shape.x + block_size.x - 1) / block_size.x,
                        (Z.shape.y + block_size.y - 1) / block_size.y);
     // std::cout << "W_x_dim: " << W.shape.x << ", W_y_dim: " << W.shape.y << std::endl;
     // std::cout << "A_x_dim: " << A.shape.x << ", A_y_dim: " << A.shape.y << std::endl;
@@ -175,34 +175,20 @@ Matrix& LinearLayer::backprop(Matrix& dZ, float learning_rate) {
 
 void LinearLayer::computeAndStoreBackpropError(Matrix& dZ) {
     dim3 block_size(8, 8);
-    dim3 num_of_blocks(	(A.shape.x + block_size.x - 1) / block_size.x,
-                       (A.shape.y + block_size.y - 1) / block_size.y);
-    linearLayerBackprop<<<num_of_blocks, block_size>>>( W.data_device.get(),
-                                                       dZ.data_device.get(),
-                                                       dA.data_device.get(),
-                                                       W.shape.x, W.shape.y,
-                                                       dZ.shape.x, dZ.shape.y);
+    dim3 num_of_blocks(	(A.shape.x + block_size.x - 1) / block_size.x, (A.shape.y + block_size.y - 1) / block_size.y);
+    linearLayerBackprop<<<num_of_blocks, block_size>>>( W.data_device.get(), dZ.data_device.get(), dA.data_device.get(), W.shape.x, W.shape.y, dZ.shape.x, dZ.shape.y);
 }
 
 void LinearLayer::updateWeights(Matrix& dZ, float learning_rate) {
     dim3 block_size(8, 8);
-    dim3 num_of_blocks(	(W.shape.x + block_size.x - 1) / block_size.x,
-                       (W.shape.y + block_size.y - 1) / block_size.y);
-    linearLayerUpdateWeights<<<num_of_blocks, block_size>>>(dZ.data_device.get(),
-                                                            A.data_device.get(),
-                                                            W.data_device.get(),
-                                                            dZ.shape.x, dZ.shape.y,
-                                                            A.shape.x, A.shape.y,
-                                                            learning_rate);
+    dim3 num_of_blocks(	(W.shape.x + block_size.x - 1) / block_size.x, (W.shape.y + block_size.y - 1) / block_size.y);
+    linearLayerUpdateWeights<<<num_of_blocks, block_size>>>(dZ.data_device.get(), A.data_device.get(), W.data_device.get(), dZ.shape.x, dZ.shape.y, A.shape.x, A.shape.y, learning_rate);
 }
 
 void LinearLayer::updateBias(Matrix& dZ, float learning_rate) {
     dim3 block_size(256);
     dim3 num_of_blocks( (dZ.shape.y * dZ.shape.x + block_size.x - 1) / block_size.x);
-    linearLayerUpdateBias<<<num_of_blocks, block_size>>>(dZ.data_device.get(),
-                                                         b.data_device.get(),
-                                                         dZ.shape.x, dZ.shape.y,
-                                                         b.shape.x, learning_rate);
+    linearLayerUpdateBias<<<num_of_blocks, block_size>>>(dZ.data_device.get(), b.data_device.get(), dZ.shape.x, dZ.shape.y, b.shape.x, learning_rate);
 }
 
 int LinearLayer::getXDim() const {
