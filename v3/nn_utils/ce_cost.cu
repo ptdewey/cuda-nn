@@ -5,11 +5,6 @@
 #include <iostream>
 #include <math.h>
 
-// // convert 2D index into linear index
-// __device__ int idx(int N, int nx, int ny) {
-//     return ny * N + nx;
-// }
-
 #define MASK (unsigned int)0xffffffff
 
 __global__ void crossEntropyCost(float* predictions, float* target, int N, int C, float* cost) {
@@ -18,51 +13,27 @@ __global__ void crossEntropyCost(float* predictions, float* target, int N, int C
     if (n < N) {
         float sampleCost = 0.0f;
         for (int j = 0; j < C; ++j) {
-            // Indexing formula for accessing elements in 2D arrays
             int index = n * C + j;
-
-            // One-hot encoded target for class j for the nth sample
             float y_ij = (j == target[n]) ? 1.0f : 0.0f;
-
-            // Predicted probability for class j for the nth sample
             float y_hat_ij = predictions[index];
-
-            // Add the cross-entropy term for class j
-            sampleCost += y_ij * logf(y_hat_ij + 1e-10); // Small epsilon to avoid log(0)
+            sampleCost += y_ij * logf(y_hat_ij + 1e-5);
         }
-
-        // Accumulate the individual sample costs
+        // TODO: more intelligent reduction
+        // TEST: /C ? should maybe be N??
         atomicAdd(cost, -sampleCost / C);
-
     }
 }
 
 __global__ void dCrossEntropyCost(float* predictions, float* target, float* dY, int N, int C) {
     int n = blockIdx.x * blockDim.x + threadIdx.x;
     if (n < N) {
-        // Compute gradients for the nth sample
         for (int j = 0; j < C; ++j) {
-            // Indexing formula for accessing elements in 2D arrays
             int index = n * C + j;
-
-            // One-hot encoded target for class j for the nth sample
             float y_ij = (j == target[n]) ? 1.0f : 0.0f;
-
-            // Predicted probability for class j for the nth sample
             float y_hat_ij = predictions[index];
-
-            // Compute the gradient for predicted probability y_hat_ij
-            dY[index] = -y_ij / (y_hat_ij + 1e-10); // Small epsilon to avoid division by zero
+            dY[index] = -y_ij / (y_hat_ij + 1e-5);
         }
     }
-
-    // if (n < N) {
-    //     // TODO: more intelligent reduction
-    //     for (int c = 0; c < C; c++) {
-    //         int idx = n * C + c;
-    //         dY[idx] = -1*target[n] + predictions[idx];
-    //     }
-    // }
 }
 
 float CECost::cost(Matrix predictions, Matrix target) {

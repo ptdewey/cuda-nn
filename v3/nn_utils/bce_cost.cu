@@ -24,9 +24,7 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     __shared__ float w_pc[32];
 
     if (n < N) {
-        // float pc = -1 * (target[n] * __logf(predictions[n]) + (1.0f - target[n]) * __logf(1.0f - predictions[n])) / N;
-        float pc = -1 * (target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n])) / N;
-        // FIX: nan cost due to log(0)?
+        float pc = -1 * (target[n] * logf(predictions[n] + 1e-5) + (1.0f - target[n]) * logf(1.0f - predictions[n] + 1e-5)) / N;
 
         // shuffle reduction
         #pragma unroll 5
@@ -67,9 +65,8 @@ __global__ void dBinaryCrossEntropyCost(float *predictions, float *target,
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < size) {
-        // FIX: nan cost due to division by zero?
-        dY[index] = -1.0 * (target[index] / predictions[index] -
-            (1 - target[index]) / (1 - predictions[index]));
+        dY[index] = -1.0 * (target[index] / (predictions[index] + 1e-5) -
+            (1 - target[index]) / (1 - predictions[index] + 1e-5));
     }
 }
 

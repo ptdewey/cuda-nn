@@ -10,6 +10,7 @@
 #include "nn_utils/nn_exception.hh"
 #include "nn_utils/bce_cost.hh"
 #include "nn_utils/ce_cost.hh"
+#include "nn_utils/mse_cost.hh"
 
 #include "coordinates_dataset.hh"
 #include "mnist_dataset.hh"
@@ -32,7 +33,7 @@ float computeAccuracy(const Matrix& predictions, const Matrix& targets) {
             float best_pred = 0.0;
             std::cout << "i: " << i;
             for (int c = 0; c < n; c++) {
-                std::cout << " p[c]: " << predictions[i * n + c];
+                std::cout << " p[" << c << "]: " << predictions[i * n + c];
                 psum += predictions[i *n + c];
                 if (predictions[i * n + c] > best_pred) {
                     best_pred = predictions[i * n + c];
@@ -60,10 +61,10 @@ float computeAccuracy(const Matrix& predictions, const Matrix& targets) {
 
 int main(int argc, char** argv) {
     // adjust these
-    int print_epoch = 25;
-    size_t batch_size = 32;
-    size_t num_batches = 256;
-    int epochs = 125;
+    int print_epoch = 1;
+    size_t batch_size = 8;
+    size_t num_batches = 1500;
+    int epochs = 15;
 
     // size_t l1 = 1700;
     // size_t l2 = 28;
@@ -87,8 +88,11 @@ int main(int argc, char** argv) {
     }
 
     srand( time(NULL) );
+
     BCECost bce_cost;
     CECost ce_cost;
+    MSECost mse_cost;
+
     NeuralNetwork nn;
 
     // Coordinates Dataset
@@ -106,11 +110,13 @@ int main(int argc, char** argv) {
     std::string labels_file = "../mnist/filtered-train-labels.idx1-ubyte";
     std::string test_image_file = "../mnist/filtered-test-images.idx3-ubyte";
     std::string test_labels_file = "../mnist/filtered-test-labels.idx1-ubyte";
+    int ts = 2100;
     // full dataset:
     // std::string labels_file = "../mnist/train-labels.idx1-ubyte";
     // std::string image_file = "../mnist/train-images.idx3-ubyte";
-    // std::string test_image_file = "../mnist/test-images.idx3-ubyte";
-    // std::string test_labels_file = "../mnist/test-labels.idx1-ubyte";
+    // std::string test_image_file = "../mnist/t10k-images.idx3-ubyte";
+    // std::string test_labels_file = "../mnist/t10k-labels.idx1-ubyte";
+    // int ts = 10000;
 
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
 
@@ -118,14 +124,13 @@ int main(int argc, char** argv) {
     nn.addLayer(new ReLUActivation("relu_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
     nn.addLayer(new ReLUActivation("relu_2"));
-    // nn.addLayer(new LinearLayer("linear_3", Shape(l1, 1)));
-    nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
 
-    // nn.addLayer(new LinearLayer("linear_3", Shape(l1, 10)));
-    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
+    // nn.addLayer(new LinearLayer("linear_3", Shape(l1, 1)));
+    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
+    nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
     // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
-    nn.addLayer(new SigmoidActivation("sigmoid_output"));
-    // nn.addLayer(new SoftmaxActivation("softmax_output"));
+    // nn.addLayer(new SigmoidActivation("sigmoid_output"));
+    nn.addLayer(new SoftmaxActivation("softmax_output"));
 
     // network training
     Matrix Y;
@@ -136,9 +141,10 @@ int main(int argc, char** argv) {
         for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
             Y = nn.forward(dataset.getBatches().at(batch));
             nn.backprop(Y, dataset.getTargets().at(batch));
-            // TODO: make interface for cost functions? (allows alternative ones)
-            cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
+            // TODO: make interface for cost functions? (allows alternative ones) -> pass in cost as param to backprop
+            // cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
             // cost += ce_cost.cost(Y, dataset.getTargets().at(batch));
+            cost += mse_cost.cost(Y, dataset.getTargets().at(batch));
         }
 
         if (print_epoch > -1 && epoch % print_epoch == 0) {
@@ -163,9 +169,9 @@ int main(int argc, char** argv) {
     #define TEST
 
     #ifdef TEST
-    int ts = 2100;
+    // fixed size of mnist testing set (maybe output number of datapoints read in?)
+
     MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
-    // MNISTDataset test_set(2100, 1, test_image_file, test_labels_file);
     Matrix T;
     float test_acc = 0.0;
     for (int i = 1; i <= ts / batch_size; i++) {
@@ -174,11 +180,6 @@ int main(int argc, char** argv) {
         test_acc += computeAccuracy(T, test_set.getTargets().at(test_set.getNumOfBatches() - i));
     }
     test_acc /= (ts / batch_size);
-    // T = nn.forward(test_set.getBatches().at(test_set.getNumOfBatches() - 1));
-    // FIX: this breaks sometimes? (nan cost issue probably) 
-    // FIX: wrong T dimensions
-    // T.copyDeviceToHost();
-    // float test_acc = computeAccuracy(T, test_set.getTargets().at(test_set.getNumOfBatches() - 1));
     std::cout << "Test Accuracy: " << test_acc << std::endl;
     #endif
 

@@ -10,10 +10,9 @@ __global__ void meanSquareErrorCost(float* predictions, float* target, int N, in
 
     if (n < N) {
         float sum = 0.0f;
-        // TODO: make more efficient
         for (int c = 0; c < C; c++) {
             int idx = n * C + c;
-            float diff = predictions[idx] - target[idx];
+            float diff = predictions[idx] - (c == static_cast<int>(target[n]));
             sum += diff * diff;
         }
         atomicAdd(cost, sum / C);
@@ -24,10 +23,9 @@ __global__ void dMeanSquareErrorCost(float* predictions, float* target, float* d
     int n = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (n < N) {
-        // TODO: make more efficient
         for (int c = 0; c < C; c++) {
-            int index = n * C + c;
-            dY[index] = 2.0f * (predictions[index] - target[index]) / C;
+            int idx = n * C + c;
+            dY[idx] = 2.0f * (predictions[idx] - (c == static_cast<int>(target[n]))) / C;
         }
     }
 }
@@ -41,7 +39,7 @@ float MSECost::cost(Matrix predictions, Matrix target) {
     *cost = 0.0f;
 
     dim3 T(256);
-    dim3 B((predictions.shape.x + T.x - 1) / T.x);
+    dim3 B((predictions.shape.y * predictions.shape.x + T.x - 1) / T.x);
     // dim3 T(32, 32);
     // int Bx = (predictions.shape.x + T.x - 1) / T.x;
     // int By = (predictions.shape.y + T.y - 1) / T.y;
@@ -64,7 +62,7 @@ Matrix MSECost::dCost(Matrix predictions, Matrix target, Matrix dY) {
 
     dim3 block_size(256);
     // dim3 block_size(32, 32);
-    dim3 num_of_blocks((predictions.shape.x + block_size.x - 1) / block_size.x);
+    dim3 num_of_blocks((predictions.shape.y * predictions.shape.x + block_size.x - 1) / block_size.x);
     dMeanSquareErrorCost<<<num_of_blocks, block_size>>>(
         predictions.data_device.get(), target.data_device.get(),
         dY.data_device.get(), predictions.shape.x, predictions.shape.y);

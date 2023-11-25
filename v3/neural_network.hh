@@ -20,7 +20,6 @@ private:
 
 public:
 	NeuralNetwork(float learning_rate = 0.01);
-	// NeuralNetwork(float learning_rate = 0.01);
 	~NeuralNetwork();
 
 	Matrix forward(Matrix X);
@@ -28,5 +27,4 @@ public:
 
 	void addLayer(NNLayer *layer);
 	std::vector<NNLayer*> getLayers() const;
-
 };
