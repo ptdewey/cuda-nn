@@ -10,6 +10,7 @@ __global__ void meanSquareErrorCost(float* predictions, float* target, int N, in
 
     if (n < N) {
         float sum = 0.0f;
+        // TODO: more intelligent reduction
         for (int c = 0; c < C; c++) {
             int idx = n * C + c;
             float diff = predictions[idx] - (c == static_cast<int>(target[n]));

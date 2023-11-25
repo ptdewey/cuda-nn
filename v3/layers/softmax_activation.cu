@@ -27,7 +27,8 @@ __global__ void exp_sum(float* Z, float* Z_esum, int Z_x_dim, int Z_y_dim) {
 
 // Z_esum is row sum
 __device__ float softmax(float Z_i, float esum) {
-    return expf(Z_i) / (esum + 1e-5);
+    // return expf(Z_i) / (esum + 1e-5);
+    return expf(Z_i) / esum;
 }
 
 __global__ void softmaxActivationForward(float* Z, float* Z_esum, float* A, int Z_x_dim, int Z_y_dim) {

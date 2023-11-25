@@ -19,7 +19,8 @@ private:
 	float learning_rate;
 
 public:
-	NeuralNetwork(float learning_rate = 0.01);
+	// NeuralNetwork(float learning_rate = 0.01);
+	NeuralNetwork(float learning_rate = 0.1);
 	~NeuralNetwork();
 
 	Matrix forward(Matrix X);

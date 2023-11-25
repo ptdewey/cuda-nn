@@ -106,17 +106,17 @@ int main(int argc, char** argv) {
 
     // mnist: 
     // 0/1 dataset
-    std::string image_file = "../mnist/filtered-train-images.idx3-ubyte";
-    std::string labels_file = "../mnist/filtered-train-labels.idx1-ubyte";
-    std::string test_image_file = "../mnist/filtered-test-images.idx3-ubyte";
-    std::string test_labels_file = "../mnist/filtered-test-labels.idx1-ubyte";
-    int ts = 2100;
+    // std::string labels_file = "../mnist/filtered-train-labels.idx1-ubyte";
+    // std::string image_file = "../mnist/filtered-train-images.idx3-ubyte";
+    // std::string test_image_file = "../mnist/filtered-test-images.idx3-ubyte";
+    // std::string test_labels_file = "../mnist/filtered-test-labels.idx1-ubyte";
+    // int ts = 2100;
     // full dataset:
-    // std::string labels_file = "../mnist/train-labels.idx1-ubyte";
-    // std::string image_file = "../mnist/train-images.idx3-ubyte";
-    // std::string test_image_file = "../mnist/t10k-images.idx3-ubyte";
-    // std::string test_labels_file = "../mnist/t10k-labels.idx1-ubyte";
-    // int ts = 10000;
+    std::string labels_file = "../mnist/train-labels.idx1-ubyte";
+    std::string image_file = "../mnist/train-images.idx3-ubyte";
+    std::string test_image_file = "../mnist/t10k-images.idx3-ubyte";
+    std::string test_labels_file = "../mnist/t10k-labels.idx1-ubyte";
+    int ts = 10000;
 
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
 
@@ -127,8 +127,8 @@ int main(int argc, char** argv) {
 
     // nn.addLayer(new LinearLayer("linear_3", Shape(l1, 1)));
     // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
-    nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
-    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
+    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
+    nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
     // nn.addLayer(new SigmoidActivation("sigmoid_output"));
     nn.addLayer(new SoftmaxActivation("softmax_output"));
 
@@ -160,7 +160,7 @@ int main(int argc, char** argv) {
 
     float accuracy = computeAccuracy(
         Y, dataset.getTargets().at(dataset.getNumOfBatches() - 1));
-    std::cout << "Accuracy: " << accuracy << std::endl;
+    std::cout << "Last batch accuracy: " << accuracy << std::endl;
 
 
     /**
@@ -181,6 +181,8 @@ int main(int argc, char** argv) {
     }
     test_acc /= (ts / batch_size);
     std::cout << "Test Accuracy: " << test_acc << std::endl;
+    // reprint regular accuracy to deal with flooded print buffer
+    std::cout << "Last batch accuracy: " << accuracy << std::endl;
     #endif
 
     return 0;
