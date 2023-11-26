@@ -7,7 +7,6 @@
 class NeuralNetwork {
 private:
 	std::vector<NNLayer*> layers;
-	BCECost bce_cost;
 
 	Matrix Y;
 	Matrix dY;
@@ -18,7 +17,7 @@ public:
 	~NeuralNetwork();
 
 	Matrix forward(Matrix X);
-	void backprop(Matrix predictions, Matrix target);
+	void backprop(Matrix predictions, Matrix target, Cost* cost);
 
 	void addLayer(NNLayer *layer);
 	std::vector<NNLayer*> getLayers() const;

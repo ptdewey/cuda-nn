@@ -9,62 +9,87 @@ library(wesanderson)
 colors <- wes_palette("AsteroidCity1")
 
 ### Timing
-trace <- "profiler/profiler_trace_out_v"
-v0_time <- fread(glue("{trace}0.csv"))
-v1_time <- fread(glue("{trace}1.csv"))
-v2_time <- fread(glue("{trace}2.csv"))
-v3_time <- fread(glue("{trace}3.csv"))
+read_trace <- function(version) {
+  df <- fread(glue("profiler/profiler2/profiler_trace_out_v{version}.csv"))
+
+  # fix mis-matched timescales (ms and mus)
+  if (df[1, ]$Duration == "ms") {
+    df <- df[-1, ]
+    df$Duration <- as.numeric(df$Duration) * 1000
+    return(df)
+  }
+
+  # remove units column
+  df <- df[-1, ]
+  return(df)
+}
+
+v0_time <- read_trace(0)
+v1_time <- read_trace(1)
+v2_time <- read_trace(2)
+v3_time <- read_trace(3)
+v4_time <- read_trace(4)
+
+
+
+# TODO: v3/v4 are performing a different task from v0-v2
+# FIX: different time scalings (read in unit from first row?)
+
+
 tv0 <- sum(as.numeric(v0_time$Duration), na.rm = TRUE)
 tv1 <- sum(as.numeric(v1_time$Duration), na.rm = TRUE)
 tv2 <- sum(as.numeric(v2_time$Duration), na.rm = TRUE)
-tv3 <- sum(as.numeric(v3_time$Duration), na.rm = TRUE)
 
-print(paste("Execution time of v0 kernel:", tv0))
-print(paste("Execution time of v1 kernel:", tv1))
-print(paste("Execution time of v2 kernel:", tv2))
-print(paste("Execution time of v3 kernel:", tv3))
+tv3 <- sum(as.numeric(v3_time$Duration), na.rm = TRUE)
+tv4 <- sum(as.numeric(v4_time$Duration), na.rm = TRUE)
+
+print(paste("Execution time of v0 kernel:", tv0 / 1000))
+print(paste("Execution time of v1 kernel:", tv1 / 1000))
+print(paste("Execution time of v2 kernel:", tv2 / 1000))
+print(paste("Execution time of v3 kernel:", tv3 / 1000))
+print(paste("Execution time of v4 kernel:", tv4 / 1000))
 
 # NOTE: update with later versions
-times <- data.frame(version = c("v0", "v1", "v2", "v3"),
-                    execution_time = c(tv0, tv1, tv2, tv3))
+times <- data.frame(version = c("v0", "v1", "v2", "v3", "v4"),
+    execution_time = c(tv0, tv1, tv2, tv3, tv4))
 
-plot <- FALSE
+plot <- TRUE
 
 # TODO: update epoch number as necessary
 if (plot == TRUE) {
     p <- ggplot(times, aes(x = version, y = execution_time / 1000)) +
-      geom_point(size = 3, color = colors[3]) +
-      geom_line(aes(group = 1), color = colors[3]) +
-      ggtitle("Fifteen Epoch Execution Time Per Version") +
-      ylab("Execution Time (milliseconds)") +
-      xlab("Version")
+    geom_point(size = 3, color = colors[3]) +
+    geom_line(aes(group = 1), color = colors[3]) +
+    ggtitle("Five Epoch Execution Time Per Version") +
+    ylab("Execution Time (milliseconds)") +
+    xlab("Version")
     ggsave("images/version_timing.png", p)
 }
 
 # kernel by kernel breakdown of timings
 # remove non-kernel information from csvs
 extract_kernels <- function(df) {
-  df$Duration <- as.numeric(df$Duration)
-  df <- df %>%
-    filter(!grepl("\\[|\\]", Name)) %>%
-    group_by(Name) %>%
-    summarize(
-      # min_time = min(Duration),
-      # max_time = max(Duration),
-      avg_time = mean(Duration)
-    )
-  df[-1, ]
+    df$Duration <- as.numeric(df$Duration)
+    df <- df %>%
+        filter(!grepl("\\[|\\]", Name)) %>%
+        group_by(Name) %>%
+        summarize(
+            avg_time = mean(Duration)
+        )
 }
 
 v0t <- extract_kernels(v0_time)
 v1t <- extract_kernels(v1_time)
 v2t <- extract_kernels(v2_time)
+vs_bin <- imap_dfr(list(v0t, v1t, v2t), ~ mutate(.x, version = glue("v{.y - 1}")))
+
 v3t <- extract_kernels(v3_time)
-vs <- list(v0t, v1t, v2t, v3t)
+v4t <- extract_kernels(v4_time)
+vs <- list(v0t, v1t, v2t, v3t, v4t)
+vs_mul <- imap_dfr(list(v3t, v4t), ~ mutate(.x, version = glue("v{.y + 2}")))
 
-v_all <- imap_dfr(vs, ~ mutate(.x, version = glue("v{.y - 1}")))
-
-print(v_all)
+# v_all <- imap_dfr(vs, ~ mutate(.x, version = glue("v{.y - 1}")))
+# print(v_all)
 
 
 plot_kernel <- function(df, name) {
@@ -86,12 +111,21 @@ plot_kernel <- function(df, name) {
 
 # Plots
 if (plot == TRUE) {
-  for (name in unique(v_all$Name)) {
+  for (name in unique(vs_bin$Name)) {
     name <- gsub("\\(.*\\)", "", name)
-    p <- plot_kernel(v_all, name)
+    p <- plot_kernel(vs_bin, name)
+  }
+  for (name in unique(vs_mul$Name)) {
+    name <- gsub("\\(.*\\)", "", name)
+    p <- plot_kernel(vs_mul, name)
   }
 }
 
 # good table for report - (remove min/max first?)
-v_tab <- v_all %>% pivot_wider(names_from = "version", values_from = "avg_time")
-print(v_tab)
+v_bin_tab <- vs_bin %>%
+  pivot_wider(names_from = "version", values_from = "avg_time")
+print(v_bin_tab)
+
+v_mul_tab <- vs_mul %>%
+  pivot_wider(names_from = "version", values_from = "avg_time")
+print(v_mul_tab)

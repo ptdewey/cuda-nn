@@ -12,7 +12,6 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     int n = blockIdx.x * blockIdx.x + threadIdx.x;
 
     // NOTE: block size is 256x1 for this kernel
-    // PERF: bank size bottleneck is potentially present for 1d block size
     __shared__ float s_pc[256];
 
     if (n < N) {
@@ -42,18 +41,19 @@ __global__ void dBinaryCrossEntropyCost(float *predictions, float *target,
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < size) {
-        // TODO: fix long memory reaches?, writes
         dY[index] = -1.0 * (target[index] / predictions[index] -
             (1 - target[index]) / (1 - predictions[index]));
     }
 }
 
+BCECost::BCECost() {}
+
+BCECost::~BCECost() {}
+
 float BCECost::cost(Matrix predictions, Matrix target) {
     assert(predictions.shape.x == target.shape.x);
 
     float *cost;
-    // TODO: change to cudaMalloc maybe? (its just a single value so probably
-    // fine) - value updated once per thread block
     cudaMallocManaged(&cost, sizeof(float));
     *cost = 0.0f;
 

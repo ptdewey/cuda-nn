@@ -2,8 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <ctime>  // for time function
-#include <cstdlib>  // for rand function
+#include <algorithm>
+#include <iterator>
 
 MNISTDataset::MNISTDataset(size_t batch_size, size_t number_of_batches, const std::string& imagesFilePath, const std::string& labelsFilePath) :
     batch_size(batch_size), number_of_batches(number_of_batches) {
@@ -38,6 +38,7 @@ MNISTDataset::MNISTDataset(size_t batch_size, size_t number_of_batches, const st
     labelsFile.read(reinterpret_cast<char*>(&magic_number_images), sizeof(magic_number_images));
     labelsFile.read(reinterpret_cast<char*>(&num_images), sizeof(num_images));
 
+
     // Read all MNIST data into pairs
     std::vector<std::pair<std::vector<float>, int>> imageLabelPairs;
 
@@ -60,15 +61,11 @@ MNISTDataset::MNISTDataset(size_t batch_size, size_t number_of_batches, const st
         }
     }
 
-    // Shuffle the pairs using a custom shuffling approach
-    srand(static_cast<unsigned int>(time(nullptr)));  // seed for rand()
+    // std::cout << allImages.size() << std::endl;
+    // std::cout << allLabels.size() << std::endl;
 
-    for (size_t i = 0; i < imageLabelPairs.size() - 1; ++i) {
-        size_t j = i + rand() % (imageLabelPairs.size() - i);
-
-        // Swap pairs
-        std::swap(imageLabelPairs[i], imageLabelPairs[j]);
-    }
+    // Shuffle the pairs
+    std::random_shuffle(imageLabelPairs.begin(), imageLabelPairs.end());
 
     // Create batches
     for (size_t i = 0; i < number_of_batches; ++i) {
