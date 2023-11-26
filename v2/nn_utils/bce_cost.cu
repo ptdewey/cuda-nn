@@ -24,15 +24,15 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     __shared__ float w_pc[32];
 
     if (n < N) {
-        float pc = -1 * (target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n])) / N;
+        float pc = -1 * (target[n] * logf(predictions[n] + 1e-5) + (1.0f - target[n]) * logf(1.0f - predictions[n] + 1e-5)) / N;
 
         // shuffle reduction
-        #pragma unroll 5
-        for (int i = 16; i > 0; i /= 2) {
-             pc += __shfl_down_sync(MASK, pc, i);
-        }
+        pc += __shfl_down_sync(MASK, pc, 16);
+        pc += __shfl_down_sync(MASK, pc, 8);
+        pc += __shfl_down_sync(MASK, pc, 4);
+        pc += __shfl_down_sync(MASK, pc, 2);
+        pc += __shfl_down_sync(MASK, pc, 1);
 
-        __syncthreads();
 
         // apppend results from first thread in each warp
         if (t == 0) {
@@ -45,12 +45,11 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
         if (w == 0) {
             pc = w_pc[t];
 
-            // NOTE: block size is 32x8 here since the original was 256x1
-            // this means the last reduction should only happen on 4 threads in warp 0
-            #pragma unroll 5
-            for (int i = 16; i > 0; i /= 2) {
-                pc += __shfl_down_sync(MASK, pc, i);
-            }
+            pc += __shfl_down_sync(MASK, pc, 16);
+            pc += __shfl_down_sync(MASK, pc, 8);
+            pc += __shfl_down_sync(MASK, pc, 4);
+            pc += __shfl_down_sync(MASK, pc, 2);
+            pc += __shfl_down_sync(MASK, pc, 1);
 
             // thread 0 in warp 0 adds to cost accumulator
             if (t == 0) {
@@ -66,11 +65,14 @@ __global__ void dBinaryCrossEntropyCost(float *predictions, float *target,
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < size) {
-        // TODO: fix long memory reaches?, writes (strip mining?)
-        dY[index] = -1.0 * (target[index] / predictions[index] -
-            (1 - target[index]) / (1 - predictions[index]));
+        dY[index] = -1.0 * (target[index] / (predictions[index] + 1e-5) -
+            (1 - target[index]) / (1 - predictions[index] + 1e-5));
     }
 }
+
+BCECost::BCECost() {}
+
+BCECost::~BCECost() {}
 
 float BCECost::cost(Matrix predictions, Matrix target) {
     assert(predictions.shape.x == target.shape.x);
@@ -101,6 +103,7 @@ Matrix BCECost::dCost(Matrix predictions, Matrix target, Matrix dY) {
     assert(predictions.shape.x == target.shape.x);
 
     dim3 block_size(256);
+    // dim3 block_size(32, 32);
     dim3 num_of_blocks((predictions.shape.x + block_size.x - 1) / block_size.x);
     dBinaryCrossEntropyCost<<<num_of_blocks, block_size>>>(
         predictions.data_device.get(), target.data_device.get(),

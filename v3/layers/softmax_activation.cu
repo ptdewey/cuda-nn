@@ -12,12 +12,10 @@ __global__ void exp_sum(float* Z, float* Z_esum, int Z_x_dim, int Z_y_dim) {
      * Z_x -> batch size
      * row is an image, column is class
      */
-
     if (n < Z_x_dim) {
         float psum = 0;
         int row = n * Z_y_dim;
 
-        // TODO: do more intelligent vector sum
         for (int j = 0; j < Z_y_dim; j++) {;
             psum += expf(Z[row + j]); 
         }

@@ -3,17 +3,24 @@
 #include <vector>
 #include "layers/nn_layer.hh"
 #include "nn_utils/bce_cost.hh"
+#include "nn_utils/ce_cost.hh"
+#include "nn_utils/mse_cost.hh"
 
 class NeuralNetwork {
 private:
 	std::vector<NNLayer*> layers;
+
+	BCECost bce_cost;
+	CECost ce_cost;
+    MSECost mse_cost;
 
 	Matrix Y;
 	Matrix dY;
 	float learning_rate;
 
 public:
-	NeuralNetwork(float learning_rate = 0.01);
+	// NeuralNetwork(float learning_rate = 0.01);
+	NeuralNetwork(float learning_rate = 0.1);
 	~NeuralNetwork();
 
 	Matrix forward(Matrix X);
@@ -21,5 +28,4 @@ public:
 
 	void addLayer(NNLayer *layer);
 	std::vector<NNLayer*> getLayers() const;
-
 };
