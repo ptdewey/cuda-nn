@@ -10,10 +10,6 @@ class NeuralNetwork {
 private:
 	std::vector<NNLayer*> layers;
 
-	BCECost bce_cost;
-	CECost ce_cost;
-    MSECost mse_cost;
-
 	Matrix Y;
 	Matrix dY;
 	float learning_rate;

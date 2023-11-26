@@ -31,6 +31,9 @@ __global__ void dMeanSquareErrorCost(float* predictions, float* target, float* d
     }
 }
 
+MSECost::MSECost() {}
+
+MSECost::~MSECost() {}
 
 float MSECost::cost(Matrix predictions, Matrix target) {
     assert(predictions.shape.x == target.shape.x);

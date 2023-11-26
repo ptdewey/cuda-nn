@@ -36,6 +36,10 @@ __global__ void dCrossEntropyCost(float* predictions, float* target, float* dY, 
     }
 }
 
+CECost::CECost() {}
+
+CECost::~CECost() {}
+
 float CECost::cost(Matrix predictions, Matrix target) {
     assert(predictions.shape.x == target.shape.x);
 
