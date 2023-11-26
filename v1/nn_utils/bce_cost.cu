@@ -12,7 +12,6 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     int n = blockIdx.x * blockIdx.x + threadIdx.x;
 
     // NOTE: block size is 256x1 for this kernel
-    // PERF: bank size bottleneck is potentially present for 1d block size
     __shared__ float s_pc[256];
 
     if (n < N) {

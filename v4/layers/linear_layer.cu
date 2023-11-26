@@ -2,17 +2,11 @@
 #include <assert.h>
 #include <iostream>
 #include <random>
+#include <cublas_v2.h>
 
 #include "linear_layer.hh"
 #include "../nn_utils/nn_exception.hh"
 
-
-// matrix bounds are related to batch size input size, and linear layer size
-// __device__ void mxm(int M, int K, int N, float* W, float* A, float* Z) {
-//     int bn = blockIdx.x;
-//     int bm = blockIdx.y;
-//     int t = threadIdx.x;
-// }
 
 __global__ void linearLayerForward( float* W, float* A, float* Z, float* b, int W_x_dim, int W_y_dim, int A_x_dim, int A_y_dim) {
     int row = blockIdx.y * blockDim.y + threadIdx.y;

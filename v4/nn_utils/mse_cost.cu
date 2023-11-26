@@ -22,7 +22,6 @@ __global__ void meanSquareErrorCost(float* predictions, float* target, int N, in
     sum += __shfl_down_sync(MASK, sum, 2);
     sum += __shfl_down_sync(MASK, sum, 1);
 
-
     // thread blocks are usually pretty small so more reduction probably isn't necessary
     if (threadIdx.x == 0) {
         atomicAdd(cost, sum);
@@ -53,10 +52,6 @@ float MSECost::cost(Matrix predictions, Matrix target) {
 
     dim3 T(32);
     dim3 B((predictions.shape.y * predictions.shape.x + T.x - 1) / T.x);
-    // dim3 T(32, 32);
-    // int Bx = (predictions.shape.x + T.x - 1) / T.x;
-    // int By = (predictions.shape.y + T.y - 1) / T.y;
-    // dim3 B(Bx, By);
     meanSquareErrorCost<<< B, T >>>(
         predictions.data_device.get(), target.data_device.get(),
         predictions.shape.x, predictions.shape.y, cost);
@@ -74,7 +69,6 @@ Matrix MSECost::dCost(Matrix predictions, Matrix target, Matrix dY) {
     assert(predictions.shape.x == target.shape.x);
 
     dim3 block_size(64);
-    // dim3 block_size(32, 32);
     dim3 num_of_blocks((predictions.shape.y * predictions.shape.x + block_size.x - 1) / block_size.x);
     dMeanSquareErrorCost<<<num_of_blocks, block_size>>>(
         predictions.data_device.get(), target.data_device.get(),

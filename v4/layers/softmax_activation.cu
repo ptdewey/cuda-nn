@@ -11,7 +11,7 @@ __inline__ __device__ float expsum(float* Z, int Z_y_dim, int row) {
 }
 
 // esum is row exponential sum
-__device__ float softmax(float Z_i, float esum) {
+__inline__ __device__ float softmax(float Z_i, float esum) {
     return expf(Z_i) / esum;
 }
 

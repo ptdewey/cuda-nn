@@ -10,7 +10,7 @@ colors <- wes_palette("AsteroidCity1")
 
 ### Timing
 read_trace <- function(version) {
-  df <- fread(glue("profiler/profiler_trace_out_v{version}.csv"))
+  df <- fread(glue("profiler/profiler2/profiler_trace_out_v{version}.csv"))
 
   # fix mis-matched timescales (ms and mus)
   if (df[1, ]$Duration == "ms") {
@@ -53,14 +53,14 @@ print(paste("Execution time of v4 kernel:", tv4 / 1000))
 times <- data.frame(version = c("v0", "v1", "v2", "v3", "v4"),
     execution_time = c(tv0, tv1, tv2, tv3, tv4))
 
-plot <- FALSE
+plot <- TRUE
 
 # TODO: update epoch number as necessary
 if (plot == TRUE) {
     p <- ggplot(times, aes(x = version, y = execution_time / 1000)) +
     geom_point(size = 3, color = colors[3]) +
     geom_line(aes(group = 1), color = colors[3]) +
-    ggtitle("Fifteen Epoch Execution Time Per Version") +
+    ggtitle("Five Epoch Execution Time Per Version") +
     ylab("Execution Time (milliseconds)") +
     xlab("Version")
     ggsave("images/version_timing.png", p)
@@ -86,7 +86,7 @@ vs_bin <- imap_dfr(list(v0t, v1t, v2t), ~ mutate(.x, version = glue("v{.y - 1}")
 v3t <- extract_kernels(v3_time)
 v4t <- extract_kernels(v4_time)
 vs <- list(v0t, v1t, v2t, v3t, v4t)
-vs_mul <- imap_dfr(list(v3t, v4t), ~ mutate(.x, version = glue("v{.y - 1}")))
+vs_mul <- imap_dfr(list(v3t, v4t), ~ mutate(.x, version = glue("v{.y + 2}")))
 
 # v_all <- imap_dfr(vs, ~ mutate(.x, version = glue("v{.y - 1}")))
 # print(v_all)
@@ -111,13 +111,13 @@ plot_kernel <- function(df, name) {
 
 # Plots
 if (plot == TRUE) {
-  for (name in unique(v_bin$Name)) {
+  for (name in unique(vs_bin$Name)) {
     name <- gsub("\\(.*\\)", "", name)
-    p <- plot_kernel(v_bin, name)
+    p <- plot_kernel(vs_bin, name)
   }
-  for (name in unique(v_mul$Name)) {
+  for (name in unique(vs_mul$Name)) {
     name <- gsub("\\(.*\\)", "", name)
-    p <- plot_kernel(v_mul, name)
+    p <- plot_kernel(vs_mul, name)
   }
 }
 
