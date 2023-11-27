@@ -46,6 +46,7 @@ int main(int argc, char** argv) {
 
     srand( time(NULL) );
 
+
     NeuralNetwork nn;
 
     // Coordinates Dataset
@@ -56,6 +57,7 @@ int main(int argc, char** argv) {
     nn.addLayer(new ReLUActivation("relu_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(30, 1)));
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
+    epochs = 1000;
 
 #else
     // mnist binary classifier: 
@@ -67,7 +69,6 @@ int main(int argc, char** argv) {
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
     int ts = 2100;
     BCECost cf;
-#define TEST
     nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
     nn.addLayer(new ReLUActivation("relu_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
@@ -76,9 +77,13 @@ int main(int argc, char** argv) {
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
     // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
     // nn.addLayer(new SoftmaxActivation("softmax_output"));
-    // TODO: change cost function by dataset (also in neural_network.cu)
-    // TODO: also adjust learning rate by dataset
 #endif
+
+// int test = 0;
+// #ifndef TEST
+//     std::cout << "e" << std::endl;
+//     test = 1;
+// #endif
 
     // network training
     Matrix Y;
@@ -89,9 +94,6 @@ int main(int argc, char** argv) {
         for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
             Y = nn.forward(dataset.getBatches().at(batch));
             nn.backprop(Y, dataset.getTargets().at(batch), &cf);
-            // TODO: make interface for cost functions? (allows alternative ones) -> pass in cost as param to backprop
-            // cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
-            // cost += ce_cost.cost(Y, dataset.getTargets().at(batch));
             cost += cf.cost(Y, dataset.getTargets().at(batch));
         }
 
@@ -109,14 +111,13 @@ int main(int argc, char** argv) {
     float accuracy = computeAccuracy(
         Y, dataset.getTargets().at(dataset.getNumOfBatches() - 1));
     std::cout << "Last training batch accuracy: " << accuracy << std::endl;
-    // TODO: update to be entire last epoch
 
 
     /**
      * TESTING
      */
-#ifdef TEST
 
+#ifndef TEST
     MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
     Matrix T;
     float test_acc = 0.0;
@@ -127,7 +128,6 @@ int main(int argc, char** argv) {
     }
     test_acc /= (ts / batch_size);
     std::cout << "Test Accuracy: " << test_acc << std::endl;
-    // reprint regular accuracy to deal with flooded print buffer
 #endif
 
     return 0;
