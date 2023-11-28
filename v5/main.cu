@@ -6,8 +6,11 @@
 #include "layers/linear_layer.hh"
 #include "layers/relu_activation.hh"
 #include "layers/sigmoid_activation.hh"
+#include "layers/softmax_activation.hh"
 #include "nn_utils/nn_exception.hh"
 #include "nn_utils/bce_cost.hh"
+#include "nn_utils/ce_cost.hh"
+#include "nn_utils/mse_cost.hh"
 
 #include "coordinates_dataset.hh"
 #include "mnist_dataset.hh"
@@ -51,16 +54,15 @@ int main(int argc, char** argv) {
     NeuralNetwork nn;
 
     // Coordinates Dataset
-#ifdef COORD
+    #ifdef COORD
     CoordinatesDataset dataset(100, 21);
     BCECost cf;
     nn.addLayer(new LinearLayer("linear_1", Shape(2, 30)));
     nn.addLayer(new ReLUActivation("relu_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(30, 1)));
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
-    epochs = 1000;
 
-#else
+    #elseifdef BIN
     // mnist binary classifier: 
     // 0/1 dataset
     std::string labels_file = "../mnist/filtered-train-labels.idx1-ubyte";
@@ -70,19 +72,36 @@ int main(int argc, char** argv) {
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
     int ts = 2100;
     BCECost cf;
+    #define TEST
     nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
     nn.addLayer(new ReLUActivation("relu_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
     nn.addLayer(new ReLUActivation("relu_2"));
     nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
-#endif
+    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
+    // nn.addLayer(new SoftmaxActivation("softmax_output"));
+    // TODO: change cost function by dataset (also in neural_network.cu)
+    // TODO: also adjust learning rate by dataset
 
-// int test = 0;
-// #ifndef TEST
-//     std::cout << "e" << std::endl;
-//     test = 1;
-// #endif
+    #else
+    // full 0-9 MNIST dataset:
+    std::string labels_file = "../mnist/train-labels.idx1-ubyte";
+    std::string image_file = "../mnist/train-images.idx3-ubyte";
+    std::string test_image_file = "../mnist/t10k-images.idx3-ubyte";
+    std::string test_labels_file = "../mnist/t10k-labels.idx1-ubyte";
+    MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
+    int ts = 10000;
+    MSECost cf;
+    #define TEST
+
+    nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
+    nn.addLayer(new ReLUActivation("relu_1"));
+    nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
+    nn.addLayer(new ReLUActivation("relu_2"));
+    nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
+    nn.addLayer(new SoftmaxActivation("softmax_output"));
+    #endif
 
     // network training
     Matrix Y;
@@ -93,6 +112,9 @@ int main(int argc, char** argv) {
         for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
             Y = nn.forward(dataset.getBatches().at(batch));
             nn.backprop(Y, dataset.getTargets().at(batch), &cf);
+            // TODO: make interface for cost functions? (allows alternative ones) -> pass in cost as param to backprop
+            // cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
+            // cost += ce_cost.cost(Y, dataset.getTargets().at(batch));
             cost += cf.cost(Y, dataset.getTargets().at(batch));
         }
 
@@ -110,11 +132,14 @@ int main(int argc, char** argv) {
     float accuracy = computeAccuracy(
         Y, dataset.getTargets().at(dataset.getNumOfBatches() - 1));
     std::cout << "Last training batch accuracy: " << accuracy << std::endl;
+    // TODO: update to be entire last epoch
+
 
     /**
      * TESTING
      */
-#ifndef TEST
+    #ifdef TEST
+
     MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
     Matrix T;
     float test_acc = 0.0;
@@ -125,7 +150,8 @@ int main(int argc, char** argv) {
     }
     test_acc /= (ts / batch_size);
     std::cout << "Test Accuracy: " << test_acc << std::endl;
-#endif
+    // reprint regular accuracy to deal with flooded print buffer
+    #endif
 
     return 0;
 }
@@ -143,7 +169,7 @@ float computeAccuracy(const Matrix& predictions, const Matrix& targets) {
             float best_pred = 0.0;
             //std::cout << "i: " << i;
             for (int c = 0; c < n; c++) {
-                //    std::cout << " p[" << c << "]: " << predictions[i * n + c];
+            //    std::cout << " p[" << c << "]: " << predictions[i * n + c];
                 psum += predictions[i *n + c];
                 if (predictions[i * n + c] > best_pred) {
                     best_pred = predictions[i * n + c];

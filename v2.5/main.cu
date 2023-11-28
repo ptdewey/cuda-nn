@@ -58,7 +58,6 @@ int main(int argc, char** argv) {
     nn.addLayer(new ReLUActivation("relu_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(30, 1)));
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
-    epochs = 1000;
 
 #else
     // mnist binary classifier: 
@@ -77,12 +76,6 @@ int main(int argc, char** argv) {
     nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
 #endif
-
-// int test = 0;
-// #ifndef TEST
-//     std::cout << "e" << std::endl;
-//     test = 1;
-// #endif
 
     // network training
     Matrix Y;

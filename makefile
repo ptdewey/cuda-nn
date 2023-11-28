@@ -1,6 +1,3 @@
-# Makefile
-
-# Define a variable for the directory
 DIR :=
 
 all: build
