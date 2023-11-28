@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
     NeuralNetwork nn;
 
     // Coordinates Dataset
-    #ifdef COORD
+#ifdef COORD
     CoordinatesDataset dataset(100, 21);
     BCECost cf;
     nn.addLayer(new LinearLayer("linear_1", Shape(2, 30)));
@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
     int ts = 2100;
     BCECost cf;
-    #define TEST
+#define TEST
     nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
     nn.addLayer(new ReLUActivation("relu_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
     // TODO: change cost function by dataset (also in neural_network.cu)
     // TODO: also adjust learning rate by dataset
 
-    #else
+#else
     // full 0-9 MNIST dataset:
     std::string labels_file = "../mnist/train-labels.idx1-ubyte";
     std::string image_file = "../mnist/train-images.idx3-ubyte";
@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
     int ts = 10000;
     MSECost cf;
-    #define TEST
+    // #define TEST
 
     nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
     nn.addLayer(new ReLUActivation("relu_1"));
@@ -101,7 +101,12 @@ int main(int argc, char** argv) {
     nn.addLayer(new ReLUActivation("relu_2"));
     nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
     nn.addLayer(new SoftmaxActivation("softmax_output"));
-    #endif
+#endif
+
+    int test = 0;
+#ifndef TEST
+    test = 1;
+#endif
 
     // network training
     Matrix Y;
@@ -138,20 +143,20 @@ int main(int argc, char** argv) {
     /**
      * TESTING
      */
-    #ifdef TEST
-
-    MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
-    Matrix T;
-    float test_acc = 0.0;
-    for (int i = 1; i <= ts / batch_size; i++) {
-        T = nn.forward(test_set.getBatches().at(test_set.getNumOfBatches() - i));
-        T.copyDeviceToHost();
-        test_acc += computeAccuracy(T, test_set.getTargets().at(test_set.getNumOfBatches() - i));
+    // #ifdef TEST
+    if (test == 1) {
+        MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
+        Matrix T;
+        float test_acc = 0.0;
+        for (int i = 1; i <= ts / batch_size; i++) {
+            T = nn.forward(test_set.getBatches().at(test_set.getNumOfBatches() - i));
+            T.copyDeviceToHost();
+            test_acc += computeAccuracy(T, test_set.getTargets().at(test_set.getNumOfBatches() - i));
+        }
+        test_acc /= (ts / batch_size);
+        std::cout << "Test Accuracy: " << test_acc << std::endl;
     }
-    test_acc /= (ts / batch_size);
-    std::cout << "Test Accuracy: " << test_acc << std::endl;
-    // reprint regular accuracy to deal with flooded print buffer
-    #endif
+    // #endif
 
     return 0;
 }
@@ -169,7 +174,7 @@ float computeAccuracy(const Matrix& predictions, const Matrix& targets) {
             float best_pred = 0.0;
             //std::cout << "i: " << i;
             for (int c = 0; c < n; c++) {
-            //    std::cout << " p[" << c << "]: " << predictions[i * n + c];
+                //    std::cout << " p[" << c << "]: " << predictions[i * n + c];
                 psum += predictions[i *n + c];
                 if (predictions[i * n + c] > best_pred) {
                     best_pred = predictions[i * n + c];

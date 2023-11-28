@@ -2,7 +2,6 @@
 #include <assert.h>
 #include <iostream>
 #include <random>
-#include <cublas_v2.h>
 
 #include "linear_layer.hh"
 #include "../nn_utils/nn_exception.hh"

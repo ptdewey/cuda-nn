@@ -10,7 +10,7 @@ colors <- wes_palette("AsteroidCity1")
 
 ### Timing
 read_trace <- function(version) {
-  df <- fread(glue("profiler/profiler2/profiler_trace_out_v{version}.csv"))
+  df <- fread(glue("profiler2/profiler_trace_out_v{version}.csv"))
 
   # fix mis-matched timescales (ms and mus)
   if (df[1, ]$Duration == "ms") {
@@ -33,8 +33,6 @@ v4_time <- read_trace(4)
 
 
 # TODO: v3/v4 are performing a different task from v0-v2
-# FIX: different time scalings (read in unit from first row?)
-
 
 tv0 <- sum(as.numeric(v0_time$Duration), na.rm = TRUE)
 tv1 <- sum(as.numeric(v1_time$Duration), na.rm = TRUE)
@@ -43,11 +41,11 @@ tv2 <- sum(as.numeric(v2_time$Duration), na.rm = TRUE)
 tv3 <- sum(as.numeric(v3_time$Duration), na.rm = TRUE)
 tv4 <- sum(as.numeric(v4_time$Duration), na.rm = TRUE)
 
-print(paste("Execution time of v0 kernel:", tv0 / 1000))
-print(paste("Execution time of v1 kernel:", tv1 / 1000))
-print(paste("Execution time of v2 kernel:", tv2 / 1000))
-print(paste("Execution time of v3 kernel:", tv3 / 1000))
-print(paste("Execution time of v4 kernel:", tv4 / 1000))
+print(paste("Execution time of v0 (ms):", tv0 / 1000))
+print(paste("Execution time of v1 (ms):", tv1 / 1000))
+print(paste("Execution time of v2 (ms):", tv2 / 1000))
+print(paste("Execution time of v3 (ms):", tv3 / 1000))
+print(paste("Execution time of v4 (ms):", tv4 / 1000))
 
 # NOTE: update with later versions
 times <- data.frame(version = c("v0", "v1", "v2", "v3", "v4"),

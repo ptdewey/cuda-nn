@@ -75,8 +75,6 @@ int main(int argc, char** argv) {
     nn.addLayer(new ReLUActivation("relu_2"));
     nn.addLayer(new LinearLayer("linear_3", Shape(l2, 1)));
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
-    // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
-    // nn.addLayer(new SoftmaxActivation("softmax_output"));
 #endif
 
 // int test = 0;
@@ -112,11 +110,9 @@ int main(int argc, char** argv) {
         Y, dataset.getTargets().at(dataset.getNumOfBatches() - 1));
     std::cout << "Last training batch accuracy: " << accuracy << std::endl;
 
-
     /**
      * TESTING
      */
-
 #ifndef TEST
     MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
     Matrix T;
