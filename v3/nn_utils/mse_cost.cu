@@ -38,27 +38,24 @@ MSECost::~MSECost() {}
 float MSECost::cost(Matrix predictions, Matrix target) {
     assert(predictions.shape.x == target.shape.x);
 
-    float *cost;
-    cudaMallocManaged(&cost, sizeof(float));
-    *cost = 0.0f;
+    float* cost;
+    float* d_cost;
+    cudaMalloc(&d_cost, sizeof(float));
+    cudaMemset(d_cost, 0, sizeof(float));
 
-    dim3 T(256);
+    dim3 T(64);
     dim3 B((predictions.shape.y * predictions.shape.x + T.x - 1) / T.x);
-    // dim3 T(32, 32);
-    // int Bx = (predictions.shape.x + T.x - 1) / T.x;
-    // int By = (predictions.shape.y + T.y - 1) / T.y;
-    // dim3 B(Bx, By);
     meanSquareErrorCost<<< B, T >>>(
         predictions.data_device.get(), target.data_device.get(),
-        predictions.shape.x, predictions.shape.y, cost);
+        predictions.shape.x, predictions.shape.y, d_cost);
     cudaDeviceSynchronize();
     NNException::throwIfDeviceErrorsOccurred(
         "Cannot compute MSE cost.");
 
-    float cost_value = *cost;
-    cudaFree(cost);
+    cudaMemcpy(cost, d_cost, 1*sizeof(int), cudaMemcpyDeviceToHost);
+    cudaFree(d_cost);
 
-    return cost_value;
+    return *cost;
 }
 
 Matrix MSECost::dCost(Matrix predictions, Matrix target, Matrix dY) {

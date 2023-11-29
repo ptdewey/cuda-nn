@@ -24,6 +24,9 @@ int main(int argc, char** argv) {
     size_t batch_size = 8;
     size_t num_batches = 1500;
     int epochs = 15;
+
+    // size_t l1 = 1700;
+    // size_t l2 = 28;
     size_t l1 = 512;
     size_t l2 = 128;
 
@@ -46,6 +49,8 @@ int main(int argc, char** argv) {
 
     srand( time(NULL) );
 
+    // CECost ce_cost;
+
     NeuralNetwork nn;
 
     // Coordinates Dataset
@@ -67,6 +72,7 @@ int main(int argc, char** argv) {
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
     int ts = 2100;
     BCECost cf;
+#define TEST
     nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
     nn.addLayer(new ReLUActivation("relu_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
@@ -75,6 +81,9 @@ int main(int argc, char** argv) {
     nn.addLayer(new SigmoidActivation("sigmoid_output"));
     // nn.addLayer(new LinearLayer("linear_3", Shape(l2, 2)));
     // nn.addLayer(new SoftmaxActivation("softmax_output"));
+    // TODO: change cost function by dataset (also in neural_network.cu)
+    // TODO: also adjust learning rate by dataset
+
 #else
     // full 0-9 MNIST dataset:
     std::string labels_file = "../mnist/train-labels.idx1-ubyte";
@@ -84,7 +93,6 @@ int main(int argc, char** argv) {
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
     int ts = 10000;
     MSECost cf;
-    // CECost cf;
     // #define TEST
 
     nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
@@ -93,6 +101,11 @@ int main(int argc, char** argv) {
     nn.addLayer(new ReLUActivation("relu_2"));
     nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
     nn.addLayer(new SoftmaxActivation("softmax_output"));
+#endif
+
+    int test = 0;
+#ifndef TEST
+    test = 1;
 #endif
 
     // network training
@@ -104,6 +117,9 @@ int main(int argc, char** argv) {
         for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
             Y = nn.forward(dataset.getBatches().at(batch));
             nn.backprop(Y, dataset.getTargets().at(batch), &cf);
+            // TODO: make interface for cost functions? (allows alternative ones) -> pass in cost as param to backprop
+            // cost += bce_cost.cost(Y, dataset.getTargets().at(batch));
+            // cost += ce_cost.cost(Y, dataset.getTargets().at(batch));
             cost += cf.cost(Y, dataset.getTargets().at(batch));
         }
 
@@ -121,22 +137,26 @@ int main(int argc, char** argv) {
     float accuracy = computeAccuracy(
         Y, dataset.getTargets().at(dataset.getNumOfBatches() - 1));
     std::cout << "Last training batch accuracy: " << accuracy << std::endl;
+    // TODO: update to be entire last epoch
+
 
     /**
      * TESTING
      */
-#ifndef TEST
-    MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
-    Matrix T;
-    float test_acc = 0.0;
-    for (int i = 1; i <= ts / batch_size; i++) {
-        T = nn.forward(test_set.getBatches().at(test_set.getNumOfBatches() - i));
-        T.copyDeviceToHost();
-        test_acc += computeAccuracy(T, test_set.getTargets().at(test_set.getNumOfBatches() - i));
+    // #ifdef TEST
+    if (test == 1) {
+        MNISTDataset test_set(batch_size, ts / batch_size, test_image_file, test_labels_file);
+        Matrix T;
+        float test_acc = 0.0;
+        for (int i = 1; i <= ts / batch_size; i++) {
+            T = nn.forward(test_set.getBatches().at(test_set.getNumOfBatches() - i));
+            T.copyDeviceToHost();
+            test_acc += computeAccuracy(T, test_set.getTargets().at(test_set.getNumOfBatches() - i));
+        }
+        test_acc /= (ts / batch_size);
+        std::cout << "Test Accuracy: " << test_acc << std::endl;
     }
-    test_acc /= (ts / batch_size);
-    std::cout << "Test Accuracy: " << test_acc << std::endl;
-#endif
+    // #endif
 
     return 0;
 }

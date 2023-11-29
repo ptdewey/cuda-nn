@@ -11,12 +11,12 @@ __global__ void crossEntropyCost(float* predictions, float* target, int N, int C
     int n = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (n < N) {
-        float sampleCost = 0.0f;
+        float sampleCost = 0;
         for (int j = 0; j < C; ++j) {
             int index = n * C + j;
-            float y_ij = (j == target[n]) ? 1.0f : 0.0f;
+            float y_ij = (j == target[n]) ? 1 : 0;
             float y_hat_ij = predictions[index];
-            sampleCost += y_ij * logf(y_hat_ij + 1e-5);
+            sampleCost += y_ij * logf(y_hat_ij + 1e-5f);
         }
         // TODO: more intelligent reduction
         // TEST: /C ? should maybe be N??
@@ -29,9 +29,9 @@ __global__ void dCrossEntropyCost(float* predictions, float* target, float* dY, 
     if (n < N) {
         for (int j = 0; j < C; ++j) {
             int index = n * C + j;
-            float y_ij = (j == target[n]) ? 1.0f : 0.0f;
+            float y_ij = (j == target[n]) ? 1 : 0;
             float y_hat_ij = predictions[index];
-            dY[index] = -y_ij / (y_hat_ij + 1e-5);
+            dY[index] = -y_ij / (y_hat_ij + 1e-5f);
         }
     }
 }

@@ -7,35 +7,38 @@
 
 #define MASK (unsigned int)0xffffffff
 
-__global__ void meanSquareErrorCost(float* predictions, float* target,
-                                    int N, int C, float* cost) {
+__global__ void meanSquareErrorCost(float* predictions, float* target, int N, int C, float* cost) {
     int n = blockIdx.x * blockDim.x + threadIdx.x;
+    int t = threadIdx.x;
+
+    __shared__ float s_pc[32];
 
     int row = n / C;
     int c = n % C;
     float diff = (n < N * C) ? predictions[n] - (c == target[row]) : 0;
     float sum = (diff * diff) / C;
 
-    // warp shuffle reduction
-    sum += __shfl_down_sync(MASK, sum, 16);
-    sum += __shfl_down_sync(MASK, sum, 8);
-    sum += __shfl_down_sync(MASK, sum, 4);
-    sum += __shfl_down_sync(MASK, sum, 2);
-    sum += __shfl_down_sync(MASK, sum, 1);
+    s_pc[t] = sum;
+    if (t < 16)  { s_pc[t] += s_pc[t + 16];  } __syncthreads();
+    if (t < 8)   { s_pc[t] += s_pc[t + 8];   } __syncthreads();
+    if (t < 4)   { s_pc[t] += s_pc[t + 4];   } __syncthreads();
+    if (t < 2)   { s_pc[t] += s_pc[t + 2];   } __syncthreads();
 
-    if (threadIdx.x == 0) {
-        atomicAdd(cost, sum);
+    // update cost from final thread in block
+    if (t == 0) {
+        s_pc[t] += s_pc[t + 1];
+        atomicAdd(cost, s_pc[t]);
     }
 }
 
-__global__ void dMeanSquareErrorCost(float* predictions, float* target,
-                                     float* dY, int N, int C) {
+__global__ void dMeanSquareErrorCost(float* predictions, float* target, float* dY, int N, int C) {
     int n = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (n < N * C) {
         int row = n / C;
         int c = n % C;
-        dY[n] = 2.f * (predictions[n] - (c == target[row])) / C;
+        // dY[n] = 2.0f * (predictions[n] - (c == static_cast<int>(target[row]))) / C;
+        dY[n] = 2.0f * (predictions[n] - (c == target[row])) / C;
     }
 }
 

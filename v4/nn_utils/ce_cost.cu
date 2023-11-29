@@ -7,32 +7,32 @@
 
 #define MASK (unsigned int)0xffffffff
 
-__global__ void crossEntropyCost(float* predictions, float* target, int N, int C, float* cost) {
+__global__ void crossEntropyCost(float* predictions, float* target, 
+                                 int N, int C, float* cost) {
     int n = blockIdx.x * blockDim.x + threadIdx.x;
+    int row = n / C;
+    int c = n % C;
+    float y = (n < N * C) ? -1 * (c == target[row]) *
+        logf(predictions[n] + 1e-5f) : 0;
+    
+    y += __shfl_down_sync(MASK, y, 16);
+    y += __shfl_down_sync(MASK, y, 8);
+    y += __shfl_down_sync(MASK, y, 4);
+    y += __shfl_down_sync(MASK, y, 2);
+    y += __shfl_down_sync(MASK, y, 1);
 
-    if (n < N) {
-        float sampleCost = 0.0f;
-        for (int j = 0; j < C; ++j) {
-            int index = n * C + j;
-            float y_ij = (j == target[n]) ? 1.0f : 0.0f;
-            float y_hat_ij = predictions[index];
-            sampleCost += y_ij * logf(y_hat_ij + 1e-5);
-        }
-        // TODO: more intelligent reduction
-        // TEST: /C ? should maybe be N??
-        atomicAdd(cost, -sampleCost / C);
+    if (threadIdx.x == 0) {
+        atomicAdd(cost, y);
     }
 }
 
-__global__ void dCrossEntropyCost(float* predictions, float* target, float* dY, int N, int C) {
+__global__ void dCrossEntropyCost(float* predictions, float* target, 
+                                  float* dY, int N, int C) {
     int n = blockIdx.x * blockDim.x + threadIdx.x;
-    if (n < N) {
-        for (int j = 0; j < C; ++j) {
-            int index = n * C + j;
-            float y_ij = (j == target[n]) ? 1.0f : 0.0f;
-            float y_hat_ij = predictions[index];
-            dY[index] = -y_ij / (y_hat_ij + 1e-5);
-        }
+    if (n < N * C) {
+        int row = n / C;
+        int c = n % C;
+        dY[n] = -1 * (c == target[row]) / (predictions[n] + 1e-5f);
     }
 }
 
@@ -43,40 +43,32 @@ CECost::~CECost() {}
 float CECost::cost(Matrix predictions, Matrix target) {
     assert(predictions.shape.x == target.shape.x);
 
-    float *cost;
-    cudaMallocManaged(&cost, sizeof(float));
-    *cost = 0.0f;
+    float* cost;
+    float* d_cost;
+    cudaMalloc(&d_cost, sizeof(float));
+    cudaMemset(d_cost, 0, sizeof(float));
 
-    // TODO: check block sizes
-    dim3 G(256);
+    dim3 G(64);
     dim3 B = (predictions.shape.x + G.x - 1) / G.x;
-    // dim3 G(32, 32);
-    // int Bx = (predictions.shape.x + G.x - 1) / G.x;
-    // int By = (predictions.shape.y + G.y - 1) / G.y;
-    // dim3 B(Bx, By);
 
     crossEntropyCost<<< B, G >>>(
         predictions.data_device.get(), target.data_device.get(),
-        predictions.shape.x, predictions.shape.y, cost);
+        predictions.shape.x, predictions.shape.y, d_cost);
     cudaDeviceSynchronize();
     NNException::throwIfDeviceErrorsOccurred(
         "Cannot compute cross entropy cost.");
 
-    float cost_value = *cost;
-    cudaFree(cost);
+    cudaMemcpy(cost, d_cost, 1*sizeof(int), cudaMemcpyDeviceToHost);
+    cudaFree(d_cost);
 
-    return cost_value; // / predictions.shape.y;
+    return *cost;
 }
 
 Matrix CECost::dCost(Matrix predictions, Matrix target, Matrix dY) {
     assert(predictions.shape.x == target.shape.x);
 
-    dim3 G(256);
-    // dim3 G(32, 32);
+    dim3 G(64);
     dim3 B((predictions.shape.x + G.x - 1) / G.x);
-    // int Bx = (predictions.shape.x + G.x - 1) / G.x;
-    // int By = (predictions.shape.y + G.y - 1) / G.y;
-    // dim3 B(Bx, By);
     dCrossEntropyCost<<< G, B >>>(
         predictions.data_device.get(), target.data_device.get(),
         dY.data_device.get(), predictions.shape.x, predictions.shape.y);

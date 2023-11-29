@@ -10,12 +10,12 @@ __inline__ __device__ float expsum(float* Z, int Z_y_dim, int row) {
     return psum;
 }
 
+// esum is row exponential sum
 __inline__ __device__ float softmax(float Z_i, float esum) {
     return expf(Z_i) / esum;
 }
 
-__global__ void softmaxActivationForward(float* Z, float* A, 
-                                         int Z_x_dim, int Z_y_dim) {
+__global__ void softmaxActivationForward(float* Z, float* A, int Z_x_dim, int Z_y_dim) {
     int n = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (n < Z_x_dim * Z_y_dim) {
