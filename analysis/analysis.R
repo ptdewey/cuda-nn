@@ -10,7 +10,8 @@ colors <- wes_palette("AsteroidCity1")
 
 ### Timing
 read_trace <- function(version) {
-  df <- fread(glue("profiler2/profiler_trace_out_v{version}.csv"))
+  # df <- fread(glue("profiler2/profiler_trace_out_v{version}.csv"))
+  df <- fread(glue("cost_improvement/profiler_trace_out_v{version}.csv"))
 
   # fix mis-matched timescales (ms and mus)
   if (df[1, ]$Duration == "ms") {
@@ -32,7 +33,6 @@ v4_time <- read_trace(4)
 v6_time <- read_trace(6)
 
 
-
 # TODO: v3/v4 are performing a different task from v0-v2
 
 tv0 <- sum(as.numeric(v0_time$Duration), na.rm = TRUE)
@@ -48,14 +48,15 @@ tv6 <- sum(as.numeric(v6_time$Duration), na.rm = TRUE)
 times <- data.frame(version = c("v0", "v1", "v2", "v3", "v4", "v6"),
     execution_time = c(tv0, tv1, tv2, tv3, tv4, tv6))
 
-plot <- TRUE
+# plot <- TRUE
+plot <- FALSE
 
 # TODO: update epoch number as necessary
 if (plot == TRUE) {
     p <- ggplot(times, aes(x = version, y = execution_time / 1000)) +
     geom_point(size = 3, color = colors[3]) +
     geom_line(aes(group = 1), color = colors[3]) +
-    ggtitle("Five Epoch Execution Time Per Version") +
+    ggtitle("1 Epoch Execution Time Per Version") +
     ylab("Execution Time (milliseconds)") +
     xlab("Version")
     ggsave("images/version_timing.png", p)
