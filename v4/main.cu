@@ -101,7 +101,8 @@ int main(int argc, char** argv) {
     for (int epoch = 0; epoch < epochs + 1; epoch++) {
         float cost = 0.0;
 
-        for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
+        // for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
+        for (int batch = 0; batch < dataset.getNumOfBatches(); batch++) {
             Y = nn.forward(dataset.getBatches().at(batch));
             nn.backprop(Y, dataset.getTargets().at(batch), &cf);
             cost += cf.cost(Y, dataset.getTargets().at(batch));
