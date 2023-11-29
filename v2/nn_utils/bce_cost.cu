@@ -14,7 +14,6 @@ __device__ int idx(int N, int nx, int ny) {
 
 __global__ void binaryCrossEntropyCost(float *predictions, float *target,
                                        int N, float *cost) {
-    // switched to 2D thread blocks
     int t = threadIdx.x;
     int w = threadIdx.y;
     int nx = blockDim.x * blockIdx.x + threadIdx.x;
@@ -24,7 +23,7 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     __shared__ float w_pc[32];
 
     float pc = (n < N) ? -1 * (target[n] * logf(predictions[n] + 1e-5f) + 
-        (1.0f - target[n]) * logf(1.0f - predictions[n] + 1e-5f)) / N : 0;
+        (1.f - target[n]) * logf(1.f - predictions[n] + 1e-5f)) / N : 0;
 
     // shuffle reduction
     pc += __shfl_down_sync(MASK, pc, 16);
@@ -33,18 +32,14 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     pc += __shfl_down_sync(MASK, pc, 2);
     pc += __shfl_down_sync(MASK, pc, 1);
 
-
     // apppend results from first thread in each warp
     if (t == 0) {
         w_pc[w] = pc;
     } 
-
     __syncthreads();
-
     // reduce full results in warp 0
     if (w == 0) {
         pc = w_pc[t];
-
         pc += __shfl_down_sync(MASK, pc, 16);
         pc += __shfl_down_sync(MASK, pc, 8);
         pc += __shfl_down_sync(MASK, pc, 4);

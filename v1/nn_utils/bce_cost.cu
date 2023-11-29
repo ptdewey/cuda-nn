@@ -14,7 +14,8 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     __shared__ float s_pc[256];
 
     if (n < N) {
-        float partial_cost = target[n] * logf(predictions[n]) + (1.0f - target[n]) * logf(1.0f - predictions[n]);
+        float partial_cost = target[n] * logf(predictions[n]) + 
+            (1.0f - target[n]) * logf(1.0f - predictions[n]);
 
         // shared memory tree reduction
         s_pc[t] = (-1 * partial_cost) / N;

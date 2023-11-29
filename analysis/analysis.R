@@ -48,8 +48,8 @@ tv6 <- sum(as.numeric(v6_time$Duration), na.rm = TRUE)
 times <- data.frame(version = c("v0", "v1", "v2", "v3", "v4", "v6"),
     execution_time = c(tv0, tv1, tv2, tv3, tv4, tv6))
 
-# plot <- TRUE
-plot <- FALSE
+plot <- TRUE
+# plot <- FALSE
 
 # TODO: update epoch number as necessary
 if (plot == TRUE) {
@@ -122,12 +122,12 @@ if (plot == TRUE) {
   }
 }
 
-print(paste("Execution time of v0 (ms):", tv0 / 1000))
-print(paste("Execution time of v1 (ms):", tv1 / 1000))
-print(paste("Execution time of v2 (ms):", tv2 / 1000))
-print(paste("Execution time of v3 (ms):", tv3 / 1000))
-print(paste("Execution time of v4 (ms):", tv4 / 1000))
-print(paste("Execution time of v6 (ms):", tv6 / 1000))
+print(paste("Single epoch execution time of v0 (s):", tv0 / 1000000))
+print(paste("Single epoch execution time of v1 (s):", tv1 / 1000000))
+print(paste("Single epoch execution time of v2 (s):", tv2 / 1000000))
+print(paste("Single epoch execution time of v3 (s):", tv3 / 1000000))
+print(paste("Single epoch execution time of v4 (s):", tv4 / 1000000))
+print(paste("Single epoch execution time of v6 (s):", tv6 / 1000000))
 
 # good table for report - (remove min/max first?)
 v_bin_tab <- vs_bin %>%

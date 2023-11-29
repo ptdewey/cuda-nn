@@ -9,7 +9,8 @@ library(wesanderson)
 colors <- wes_palette("AsteroidCity1")
 
 read_trace <- function(version) {
-  df <- fread(glue("coordinates/profile_coordinates_v{version}.csv"))
+  df <- fread(glue("coordinates_cost_improvement/profiler_trace_out_v{version}.csv"))
+  # df <- fread(glue("coordinates/profile_coordinates_v{version}.csv"))
 
   # fix mis-matched timescales (ms and mus)
   if (df[1, ]$Duration == "ms") {
@@ -100,10 +101,10 @@ if (plot == TRUE) {
   }
 }
 
-print(paste("Execution time of v0 (ms):", tv0 / 1000))
-print(paste("Execution time of v1 (ms):", tv1 / 1000))
-print(paste("Execution time of v2 (ms):", tv2 / 1000))
-print(paste("Execution time of v2.5 (ms):", tv2p5 / 1000))
+print(paste("Execution time of v0 (s):", tv0 / 1000000))
+print(paste("Execution time of v1 (s):", tv1 / 1000000))
+print(paste("Execution time of v2 (s):", tv2 / 1000000))
+print(paste("Execution time of v2.5 (s):", tv2p5 / 1000000))
 
 # good table for report - (remove min/max first?)
 v_bin_tab <- vs_bin %>%
