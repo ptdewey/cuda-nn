@@ -42,12 +42,8 @@ float MSECost::cost(Matrix predictions, Matrix target) {
     cudaMallocManaged(&cost, sizeof(float));
     *cost = 0.0f;
 
-    dim3 T(256);
+    dim3 T(32);
     dim3 B((predictions.shape.y * predictions.shape.x + T.x - 1) / T.x);
-    // dim3 T(32, 32);
-    // int Bx = (predictions.shape.x + T.x - 1) / T.x;
-    // int By = (predictions.shape.y + T.y - 1) / T.y;
-    // dim3 B(Bx, By);
     meanSquareErrorCost<<< B, T >>>(
         predictions.data_device.get(), target.data_device.get(),
         predictions.shape.x, predictions.shape.y, cost);

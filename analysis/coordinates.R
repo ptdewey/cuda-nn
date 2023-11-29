@@ -55,6 +55,7 @@ if (plot == TRUE) {
 extract_kernels <- function(df) {
     df$Duration <- as.numeric(df$Duration)
     df <- df %>%
+        mutate(Name = gsub("\\(.*?\\)", "", Name)) %>%
         filter(!grepl("\\[|\\]", Name)) %>%
         group_by(Name) %>%
         summarize(

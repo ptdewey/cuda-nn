@@ -29,6 +29,7 @@ v1_time <- read_trace(1)
 v2_time <- read_trace(2)
 v3_time <- read_trace(3)
 v4_time <- read_trace(4)
+v6_time <- read_trace(6)
 
 
 
@@ -40,16 +41,12 @@ tv2 <- sum(as.numeric(v2_time$Duration), na.rm = TRUE)
 
 tv3 <- sum(as.numeric(v3_time$Duration), na.rm = TRUE)
 tv4 <- sum(as.numeric(v4_time$Duration), na.rm = TRUE)
+tv6 <- sum(as.numeric(v6_time$Duration), na.rm = TRUE)
 
-print(paste("Execution time of v0 (ms):", tv0 / 1000))
-print(paste("Execution time of v1 (ms):", tv1 / 1000))
-print(paste("Execution time of v2 (ms):", tv2 / 1000))
-print(paste("Execution time of v3 (ms):", tv3 / 1000))
-print(paste("Execution time of v4 (ms):", tv4 / 1000))
 
 # NOTE: update with later versions
-times <- data.frame(version = c("v0", "v1", "v2", "v3", "v4"),
-    execution_time = c(tv0, tv1, tv2, tv3, tv4))
+times <- data.frame(version = c("v0", "v1", "v2", "v3", "v4", "v6"),
+    execution_time = c(tv0, tv1, tv2, tv3, tv4, tv6))
 
 plot <- TRUE
 
@@ -69,6 +66,7 @@ if (plot == TRUE) {
 extract_kernels <- function(df) {
     df$Duration <- as.numeric(df$Duration)
     df <- df %>%
+        mutate(Name = gsub("\\(.*?\\)", "", Name)) %>%
         filter(!grepl("\\[|\\]", Name)) %>%
         group_by(Name) %>%
         summarize(
@@ -83,8 +81,12 @@ vs_bin <- imap_dfr(list(v0t, v1t, v2t), ~ mutate(.x, version = glue("v{.y - 1}")
 
 v3t <- extract_kernels(v3_time)
 v4t <- extract_kernels(v4_time)
-vs <- list(v0t, v1t, v2t, v3t, v4t)
-vs_mul <- imap_dfr(list(v3t, v4t), ~ mutate(.x, version = glue("v{.y + 2}")))
+v6t <- extract_kernels(v6_time)
+vs <- list(v0t, v1t, v2t, v3t, v4t, v6t)
+vs_mul <- imap_dfr(list(v3t, v4t, v6t), ~ mutate(.x, version = glue("v{.y + 2}")))
+idc <- which(vs_mul$version == "v5")
+vs_mul$version[idc] <- rep_len("v6", length(idc))
+
 
 # v_all <- imap_dfr(vs, ~ mutate(.x, version = glue("v{.y - 1}")))
 # print(v_all)
@@ -118,6 +120,13 @@ if (plot == TRUE) {
     p <- plot_kernel(vs_mul, name)
   }
 }
+
+print(paste("Execution time of v0 (ms):", tv0 / 1000))
+print(paste("Execution time of v1 (ms):", tv1 / 1000))
+print(paste("Execution time of v2 (ms):", tv2 / 1000))
+print(paste("Execution time of v3 (ms):", tv3 / 1000))
+print(paste("Execution time of v4 (ms):", tv4 / 1000))
+print(paste("Execution time of v6 (ms):", tv6 / 1000))
 
 # good table for report - (remove min/max first?)
 v_bin_tab <- vs_bin %>%

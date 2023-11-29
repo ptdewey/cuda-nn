@@ -24,7 +24,7 @@ __global__ void binaryCrossEntropyCost(float *predictions, float *target,
     __shared__ float w_pc[32];
 
     if (n < N) {
-        float pc = -1 * (target[n] * logf(predictions[n] + 1e-5) + (1.0f - target[n]) * logf(1.0f - predictions[n] + 1e-5)) / N;
+        float pc = -1 * (target[n] * logf(predictions[n] + 1e-5f) + (1.f - target[n]) * logf(1.f - predictions[n] + 1e-5f)) / N;
 
         // shuffle reduction
         __syncwarp();
@@ -66,8 +66,8 @@ __global__ void dBinaryCrossEntropyCost(float *predictions, float *target,
     int index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (index < size) {
-        dY[index] = -1.0 * (target[index] / (predictions[index] + 1e-5) -
-            (1 - target[index]) / (1 - predictions[index] + 1e-5));
+        dY[index] = -1 * (target[index] / (predictions[index] + 1e-5f) -
+            (1 - target[index]) / (1 - predictions[index] + 1e-5f));
     }
 }
 
