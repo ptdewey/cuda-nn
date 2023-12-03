@@ -76,36 +76,38 @@ BCECost::~BCECost() {}
 float BCECost::cost(Matrix predictions, Matrix target) {
     assert(predictions.shape.x == target.shape.x);
 
-    float* cost;
+    float cost = 0;
     float* d_cost;
     cudaMalloc(&d_cost, sizeof(float));
     cudaMemset(d_cost, 0, sizeof(float));
 
-    dim3 T(32, 32);
-    int Bx = (predictions.shape.x + T.x - 1) / T.x;
-    int By = (predictions.shape.y + T.y - 1) / T.y;
+    dim3 G(32, 32);
+    int Bx = (predictions.shape.x + G.x - 1) / G.x;
+    int By = (predictions.shape.y + G.y - 1) / G.y;
     dim3 B(Bx, By);
-    binaryCrossEntropyCost<<< B, T >>>(
-        predictions.data_device.get(), target.data_device.get(),
-        predictions.shape.x, d_cost);
+
+    binaryCrossEntropyCost <<< B, G >>> (predictions.data_device.get(), target.data_device.get(), 
+                                         predictions.shape.x, d_cost);
+
     cudaDeviceSynchronize();
     NNException::throwIfDeviceErrorsOccurred(
         "Cannot compute binary cross entropy cost.");
 
-    cudaMemcpy(cost, d_cost, 1*sizeof(int), cudaMemcpyDeviceToHost);
+    cudaMemcpy(&cost, d_cost, 1*sizeof(int), cudaMemcpyDeviceToHost);
     cudaFree(d_cost);
 
-    return *cost;
+    return cost;
 }
 
 Matrix BCECost::dCost(Matrix predictions, Matrix target, Matrix dY) {
     assert(predictions.shape.x == target.shape.x);
 
-    dim3 block_size(256);
-    dim3 num_of_blocks((predictions.shape.x + block_size.x - 1) / block_size.x);
-    dBinaryCrossEntropyCost<<<num_of_blocks, block_size>>>(
-        predictions.data_device.get(), target.data_device.get(),
-        dY.data_device.get(), predictions.shape.x);
+    dim3 G(64);
+    dim3 B((predictions.shape.x + G.x - 1) / G.x);
+
+    dBinaryCrossEntropyCost <<< B, G >>> (predictions.data_device.get(), target.data_device.get(),
+                                          dY.data_device.get(), predictions.shape.x);
+
     NNException::throwIfDeviceErrorsOccurred(
         "Cannot compute derivative for binary cross entropy.");
 
