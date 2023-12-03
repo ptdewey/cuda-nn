@@ -83,8 +83,8 @@ int main(int argc, char** argv) {
     std::string test_labels_file = "../mnist/t10k-labels.idx1-ubyte";
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
     int ts = 10000;
-    MSECost cf;
-    // CECost cf;
+    // MSECost cf;
+    CECost cf;
     // #define TEST
 
     nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));

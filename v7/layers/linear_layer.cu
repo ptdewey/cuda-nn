@@ -55,7 +55,6 @@ __global__ void linearLayerUpdateWeights(  float* dZ, float* A, float* W, int dZ
 
     if (row < W_y_dim && col < W_x_dim) {
         for (int i = 0; i < dZ_x_dim; i++) {
-            // TODO: matrix mult
             dW_value += dZ[row * dZ_x_dim + i] * A[col * A_x_dim + i];
         }
         W[row * W_x_dim + col] = W[row * W_x_dim + col] - learning_rate * (dW_value / A_x_dim);
@@ -68,7 +67,6 @@ __global__ void linearLayerUpdateBias(float* dZ, float* b, int dZ_x_dim, int dZ_
     if (index < dZ_x_dim * dZ_y_dim) {
         int dZ_x = index % dZ_x_dim;
         int dZ_y = index / dZ_x_dim;
-        // TODO: replace atomic with reduction
         atomicAdd(&b[dZ_y], - learning_rate * (dZ[dZ_y * dZ_x_dim + dZ_x] / dZ_x_dim));
     }
 }
@@ -123,10 +121,9 @@ void LinearLayer::computeAndStoreLayerOutput(Matrix& A) {
     dim3 block_size(8, 8);
     dim3 num_of_blocks((Z.shape.x + block_size.x - 1) / block_size.x,
                        (Z.shape.y + block_size.y - 1) / block_size.y);
-    // std::cout << "W_x_dim: " << W.shape.x << ", W_y_dim: " << W.shape.y << std::endl;
-    // std::cout << "A_x_dim: " << A.shape.x << ", A_y_dim: " << A.shape.y << std::endl;
-    // std::cout << "Z_x_dim: " << Z.shape.x << ", Z_y_dim: " << Z.shape.y << std::endl;
-    linearLayerForward<<<num_of_blocks, block_size>>>( W.data_device.get(), A.data_device.get(), Z.data_device.get(), b.data_device.get(), W.shape.x, W.shape.y, A.shape.x, A.shape.y);
+    linearLayerForward<<<num_of_blocks, block_size>>>(W.data_device.get(), A.data_device.get(), 
+                                                      Z.data_device.get(), b.data_device.get(), 
+                                                      W.shape.x, W.shape.y, A.shape.x, A.shape.y);
 }
 
 Matrix& LinearLayer::backprop(Matrix& dZ, float learning_rate) {
