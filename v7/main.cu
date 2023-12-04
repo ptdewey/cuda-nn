@@ -7,6 +7,7 @@
 #include "layers/relu_activation.hh"
 #include "layers/sigmoid_activation.hh"
 #include "layers/softmax_activation.hh"
+#include "layers/tanh_activation.hh"
 #include "nn_utils/nn_exception.hh"
 #include "nn_utils/bce_cost.hh"
 #include "nn_utils/ce_cost.hh"
@@ -43,7 +44,7 @@ int main(int argc, char** argv) {
         print_epoch = atoi(argv[6]);
     }
 
-    srand( time(NULL) );
+    srand(time(NULL));
 
     NeuralNetwork nn;
 
@@ -87,12 +88,12 @@ int main(int argc, char** argv) {
     MSECost cf;
     // CECost cf;
 
-    // #define TEST
-
     nn.addLayer(new LinearLayer("linear_1", Shape(784, l1)));
     nn.addLayer(new ReLUActivation("relu_1"));
+    // nn.addLayer(new TanhActivation("tanh_1"));
     nn.addLayer(new LinearLayer("linear_2", Shape(l1, l2)));
     nn.addLayer(new ReLUActivation("relu_2"));
+    // nn.addLayer(new TanhActivation("tanh_2"));
     nn.addLayer(new LinearLayer("linear_3", Shape(l2, 10)));
     nn.addLayer(new SoftmaxActivation("softmax_output"));
 #endif
@@ -103,7 +104,6 @@ int main(int argc, char** argv) {
     for (int epoch = 0; epoch < epochs + 1; epoch++) {
         float cost = 0.0;
 
-        // for (int batch = 0; batch < dataset.getNumOfBatches() - 1; batch++) {
         for (int batch = 0; batch < dataset.getNumOfBatches(); batch++) {
             Y = nn.forward(dataset.getBatches().at(batch));
             nn.backprop(Y, dataset.getTargets().at(batch), &cf);

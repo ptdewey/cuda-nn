@@ -10,17 +10,13 @@ __inline__ __device__ float expsum(float* Z, int Z_y_dim, int row) {
     return psum;
 }
 
-__inline__ __device__ float softmax(float Z_i, float esum) {
-    return expf(Z_i) / esum;
-}
-
 __global__ void softmaxActivationForward(float* Z, float* A, 
                                          int Z_x_dim, int Z_y_dim) {
     int n = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (n < Z_x_dim * Z_y_dim) {
         int r = n / Z_y_dim;
-        A[n] = softmax(Z[n], expsum(Z, Z_y_dim, r));
+        A[n] = expf(Z[n]) / expsum(Z, Z_y_dim, r);
     }
 }
 
@@ -29,7 +25,7 @@ __global__ void softmaxActivationBackprop(float* Z, float* dA, float* dZ, int Z_
 
     if (n < Z_x_dim * Z_y_dim) {
         int r = n / Z_y_dim;
-        float smax = softmax(Z[n], expsum(Z, Z_y_dim, r));
+        float smax = expf(Z[n]) / expsum(Z, Z_y_dim, r);
         dZ[n] = dA[n] * smax * (1.f - smax);
     }
 }
