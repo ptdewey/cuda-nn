@@ -1,17 +1,12 @@
-DIR :=
-
 all: build
 
 build:
-	@echo "Building in directory $(DIR)"
-	@$(MAKE) -C $(DIR)
+	nvcc -arch=sm_61 -o main src/neural_network.cu src/mnist_dataset.cu src/coordinates_dataset.cu src/nn_utils/*.cu src/layers/*.cu src/main.cu 
 
 clean:
-	@echo "Cleaning in directory $(DIR)"
-	@$(MAKE) -C $(DIR) clean
+	rm main
 
 run:
-	@echo "Running in directory $(DIR)"
-	@$(MAKE) -C $(DIR) run
+	./main
 
 .PHONY: all build clean run

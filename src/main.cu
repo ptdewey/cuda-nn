@@ -77,10 +77,14 @@ int main(int argc, char** argv) {
     // nn.addLayer(new SoftmaxActivation("softmax_output"));
 #else
     // full 0-9 MNIST dataset:
-    std::string labels_file = "../mnist/train-labels.idx1-ubyte";
-    std::string image_file = "../mnist/train-images.idx3-ubyte";
-    std::string test_image_file = "../mnist/t10k-images.idx3-ubyte";
-    std::string test_labels_file = "../mnist/t10k-labels.idx1-ubyte";
+    // std::string labels_file = "../mnist/train-labels.idx1-ubyte";
+    // std::string image_file = "../mnist/train-images.idx3-ubyte";
+    // std::string test_image_file = "../mnist/t10k-images.idx3-ubyte";
+    // std::string test_labels_file = "../mnist/t10k-labels.idx1-ubyte";
+    std::string labels_file = "mnist/train-labels.idx1-ubyte";
+    std::string image_file = "mnist/train-images.idx3-ubyte";
+    std::string test_image_file = "mnist/t10k-images.idx3-ubyte";
+    std::string test_labels_file = "mnist/t10k-labels.idx1-ubyte";
     MNISTDataset dataset(batch_size, num_batches, image_file, labels_file);
     int ts = 10000;
 
