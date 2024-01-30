@@ -9,3 +9,6 @@
 *.cubin
 *.fatbin
 *.csv
+*.RData
+*.Rhistory
+*.bak
