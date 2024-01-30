@@ -1,5 +1,8 @@
 # CUDA Neural Networks
 
+## CMDA4634 Branch
+This branch contains the final code for the cmda4634 version of this project.
+
 ## Usage
 1. Clone the repository and cd into it
 2. run `make build DIR=v0` to build the v0 version (change 0 to desired version)

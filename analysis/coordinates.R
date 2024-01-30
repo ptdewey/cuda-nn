@@ -5,6 +5,7 @@ library(glue)
 library(purrr)
 library(tidyr)
 library(wesanderson)
+library(xtable)
 
 colors <- wes_palette("AsteroidCity1")
 
@@ -110,3 +111,4 @@ print(paste("Execution time of v2.5 (s):", tv2p5 / 1000000))
 v_bin_tab <- vs_bin %>%
   pivot_wider(names_from = "version", values_from = "avg_time")
 print(v_bin_tab)
+xtable(v_bin_tab)

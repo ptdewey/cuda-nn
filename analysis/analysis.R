@@ -1,3 +1,4 @@
+library(xtable)
 library(data.table)
 library(dplyr)
 library(ggplot2)
@@ -32,8 +33,6 @@ v3_time <- read_trace(3)
 v4_time <- read_trace(4)
 v6_time <- read_trace(6)
 
-
-# TODO: v3/v4 are performing a different task from v0-v2
 
 tv0 <- sum(as.numeric(v0_time$Duration), na.rm = TRUE)
 tv1 <- sum(as.numeric(v1_time$Duration), na.rm = TRUE)
@@ -133,7 +132,9 @@ print(paste("Single epoch execution time of v6 (s):", tv6 / 1000000))
 v_bin_tab <- vs_bin %>%
   pivot_wider(names_from = "version", values_from = "avg_time")
 print(v_bin_tab)
+xtable(v_bin_tab)
 
 v_mul_tab <- vs_mul %>%
   pivot_wider(names_from = "version", values_from = "avg_time")
 print(v_mul_tab)
+xtable(v_mul_tab)
